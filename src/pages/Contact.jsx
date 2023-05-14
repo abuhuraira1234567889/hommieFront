@@ -19,13 +19,13 @@ export default function Contact() {
         page={"Contact"}
       />
 
-      <Spacer height="100" />
+      <Spacer height="60" />
       <div>
         <Container>
-          <H2 fontWeight="800" color="#09150f">
+          <H2 fontWeight="800" color="#09150f" fontSize="45px">
             If you Have Any Query, Don’t Hesitate <br /> Contact with us
           </H2>
-          <Spacer height="100" />
+          <Spacer height="60" />
           <Row>
             <Col style={{ textAlign: "center" }} md={4}>
               <img
@@ -76,7 +76,7 @@ export default function Contact() {
               </div>
             </Col>
           </Row>
-          <Spacer height="150" />
+          <Spacer height="80" />
         </Container>
       </div>
       <Footer />

@@ -11,7 +11,7 @@ export default function Footer() {
   return (
     <MDBFooter className='text-center text-lg-start '>
       <section
-        style={{ background: '#304146', padding: '1px 0px', color: 'white' }}
+        style={{ background: '#304146', padding: '1px 10px', color: 'white' }}
         className=''
       >
         <MDBContainer className='text-center text-md-start mt-5'>
@@ -102,7 +102,7 @@ export default function Footer() {
         {/* &copy;{new Date().getFullYear()} Copyright:{' '} */}
         <a
           className='text-reset fw-bold'
-          style={{ paddingBottom: '10px' }}
+          style={{ paddingBottom: '0px' }}
           href='https://hommie-plum.vercel.app/'
         >
           HommieServices

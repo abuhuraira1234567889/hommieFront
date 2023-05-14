@@ -37,7 +37,7 @@ export default function Home() {
       <div className={classes.HomeWrapper}>
         <Carasoule />
 
-        <Spacer height="100" />
+        <Spacer height="40" />
         <Row>
           <Col style={{ textAlign: "center" }} md={12}>
             <h5 className={classes.weWork}> _ _ How We Works _ _</h5>
@@ -48,7 +48,7 @@ export default function Home() {
           </Col>
         </Row>
         <Container>
-          <Spacer height="100" />
+          <Spacer height="50" />
           <Row>
             <Col
               style={{
@@ -119,7 +119,7 @@ export default function Home() {
               </p>
             </Col>
           </Row>
-          <Spacer height="100" />
+          <Spacer height="40" />
         </Container>
         <div className={classes.bright}>
           <Container>
@@ -133,13 +133,13 @@ export default function Home() {
                 }}
                 md={6}
               >
-                <img style={{ width: "70%" }} src={c3}></img>
+                <img style={{ width: "80%" , marginRight: "90px"}} src={c3}></img>
               </Col>
               <Col style={{ position: "relative" }} md={6}>
                 <H2 fontWeight="800" fontSize="18px" color="#06ae5a">
                   About The Hommie_ _
                 </H2>
-                <H2 fontWeight="800" fontSize="55px" color="#102579">
+                <H2 fontWeight="800" fontSize="50px" color="#102579">
                   Connecting Both Worker <br />
                   And Client
                 </H2>
@@ -153,7 +153,7 @@ export default function Home() {
             </Row>
           </Container>
         </div>
-        <Spacer height="100" />
+        <Spacer height="40" />
         <Row>
           <Col style={{ textAlign: "center" }} md={12}>
             <h5 className={classes.weWork}> _ _ Our Services _ _</h5>
@@ -171,7 +171,7 @@ export default function Home() {
                 background: "white",
                 padding: "20px",
                 borderRadius: "10px",
-                boxShadow: "0 5px 20px 0 rgb(5 7 80 / 6%)",
+                boxShadow: "0 5px 20px 15px rgb(5 7 80 / 6%)",
                 width: "49%",
               }}
               md={6}
@@ -212,7 +212,7 @@ export default function Home() {
                 background: "white",
                 padding: "20px",
                 borderRadius: "10px",
-                boxShadow: "0 5px 20px 0 rgb(5 7 80 / 6%)",
+                boxShadow: "0 5px 20px 15px rgb(5 7 80 / 6%)",
                 marginLeft: "10px",
                 width: "49%",
               }}
@@ -257,7 +257,7 @@ export default function Home() {
                 background: "white",
                 padding: "20px",
                 borderRadius: "10px",
-                boxShadow: "0 5px 20px 0 rgb(5 7 80 / 6%)",
+                boxShadow: "0 5px 20px 15px rgb(5 7 80 / 6%)",
                 width: "49%",
               }}
               md={6}
@@ -297,7 +297,7 @@ export default function Home() {
                 background: "white",
                 padding: "20px",
                 borderRadius: "10px",
-                boxShadow: "0 5px 20px 0 rgb(5 7 80 / 6%)",
+                boxShadow: "0 5px 20px 15px rgb(5 7 80 / 6%)",
                 marginLeft: "10px",
                 width: "49%",
               }}
@@ -335,7 +335,7 @@ export default function Home() {
               </div>
             </Col>
           </Row>
-          <Spacer height="100" />
+          <Spacer height="50" />
         </Container>
 
         {/* <Spacer height='100' /> */}

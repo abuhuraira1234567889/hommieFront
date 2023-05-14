@@ -21,7 +21,7 @@
 }
 .Excellent {
   color: #102579;
-  font-size: 55px;
+  font-size: 50px;
   line-height: 1.18;
   font-weight: 800;
 }
@@ -40,7 +40,7 @@
 }
 .bright {
   background: #f7f7f7;
-  /* background:#eaecec; */
-  padding-top: 100px;
-  padding-bottom: 100px;
+  /* background:#e2e9e9; */
+  padding-top: 45px;
+  padding-bottom: 45px;
 }

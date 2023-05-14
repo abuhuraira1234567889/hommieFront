@@ -96,7 +96,7 @@ export default function Requests() {
         />
       </div>
 
-      <Spacer height="100" />
+      <Spacer height="40" />
       <div>
       
         <Container style={{position:"relative"}}>
@@ -105,7 +105,7 @@ export default function Requests() {
             <BounceLoader size={100} color="#36d7b7" />
           </div>
         )}
-          <H2 className="text-center" fontWeight="800" color="#09150f">
+          <H2 className="text-center" fontWeight="800" color="#09150f" fontSize="50px">
             Total Requests For approval
           </H2>
           <Row>
@@ -207,7 +207,7 @@ export default function Requests() {
                               // setItems(item);
                               // setopen(true);
                               reject(item._id);
-                            }}
+                            }}s
                             style={{
                               width: "100%",
                               borderRadius: "0 0px 10px 10px",
