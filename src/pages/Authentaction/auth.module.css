@@ -1,0 +1,16 @@
+.Wrapper {
+  /* background-image: url('https://img.freepik.com/free-photo/abstract-uv-ultraviolet-light-composition_23-2149243965.jpg?w=826&t=st=1676553294~exp=1676553894~hmac=b69a7c2cab5d885d12fe77d42e6a375ef68774dbb868376a35203b3ec2740362'); */
+  /* background-image: url("https://img.freepik.com/free-photo/office-supplies_23-2148103962.jpg?w=740&t=st=1677234650~exp=1677235250~hmac=02e6e0a15ae6e547ae0e1c81d79097124f38da1974aec25486b95519bff4487d"); */
+  /* background-image: url("https://img.freepik.com/premium-photo/white-black-flat-lay-background-with-sharp-layers-shadows-with-copy-space_146482-874.jpg?w=740");  */
+  /* background-image: url("https://img.freepik.com/free-vector/black-business-background-with-blue-streaks_53876-100594.jpg?w=740&t=st=1677235815~exp=1677236415~hmac=264c6765c13b2efd1a5c014963c21bfaf0cc888793307759f52e9913930aeda2"); */
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-color: #d3f1f3;
+  position: relative;
+}
+.colLeft {
+  border-radius: 20px 0px 0px 20px;
+}
+.colRight {
+  border-radius: 0px 20px 20px 0px;
+}
