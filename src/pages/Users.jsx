@@ -63,8 +63,8 @@ export default function Users() {
           ? data?.map((item, index) => {
               if (item.isAdmin === false)
                 return (
-                  <Col  data-aos="fade-up" key={index} md={4}>
-                    <Card style={{ padding: "0px", marginTop: "20px" }}>
+                  <Col  data-aos="fade-up" key={index} md={3}>
+                    <Card style={{ padding: "0px", marginTop: "20px", boxShadow: "0 5px 83px 40px rgb(40 40 40 / 8%)" }}>
                       <CardImages>
                         <img
                           alt="background"

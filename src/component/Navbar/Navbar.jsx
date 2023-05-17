@@ -147,7 +147,7 @@ export default function Navbar() {
                   onClick={() => navigate("/edit-profile")}
                   className={classes.lii}
                 >
-                  <a className={classes.name}>Edit Profile</a>
+                  <a className={classes.name}>Profile</a>
                 </li>
                 {client === "true" ? (
                   <li

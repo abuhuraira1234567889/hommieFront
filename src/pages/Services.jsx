@@ -753,7 +753,7 @@ export default function Services() {
               <Card
                 style={{ height: "400px" }}
                 onClick={() => {
-                  NextSection("Secruity Guard");
+                  NextSection("Security Guard");
                 }}
                 // onClick={() => {
                 //   client === 'false' && existance === false

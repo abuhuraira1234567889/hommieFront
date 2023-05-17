@@ -28,7 +28,7 @@ import { client } from "../services/client";
 
 const Wrapper = styled.div`
   background-color: #f7f7f7;
-  padding-top: 70px;
+  padding-top: 20px;
   padding-bottom: 100px;
 `;
 const CardImages = styled.div`
@@ -468,7 +468,7 @@ export default function AllProfile() {
                     marginRight: "10px",
                     boxShadow: "none",
                     width: "20px",
-                    height: "20px",
+                    height: "10px",
                   }}
                   type={"checkbox"}
                 />
@@ -498,11 +498,11 @@ export default function AllProfile() {
               </div>
             </div>
           </Container>
-          <Spacer height="30" />
+          <Spacer height="2" />
           <H2 fontWeight="600" fontSize="40px" className="text-center">
             {/* {router.query.name} */}
           </H2>
-          <Spacer height="50" />
+          <Spacer height="20" />
           <Container>
             <br />
             <Row>
@@ -511,7 +511,7 @@ export default function AllProfile() {
                   if (state2 == item.heading) {
                     return (
                       <Col data-aos="fade-up" key={index} md={4}>
-                        <Card style={{ padding: "0px", marginTop: "20px" }}>
+                        <Card style={{ padding: "0px", marginTop: "2px"}}>
                           <CardImages>
                             <img
                               alt="background"

@@ -114,7 +114,7 @@ export default function Requests() {
                 <Spacer height="100" />
 
                 <P className="text-center" color="red" fontSize="30px">
-                  There is No Requst to approve
+                  There is No Request to approve
                 </P>
                 <Spacer height="100" />
               </>
@@ -239,7 +239,7 @@ export default function Requests() {
                       <Spacer height="100" />
 
                       <P className="text-center" color="red" fontSize="30px">
-                        There is No Requst to approve
+                        There is No Request to approve
                       </P>
                       <Spacer height="100" />
                     </>
