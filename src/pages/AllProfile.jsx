@@ -499,9 +499,11 @@ export default function AllProfile() {
             </div>
           </Container>
           <Spacer height="2" />
+          <Spacer height="2" />
           <H2 fontWeight="600" fontSize="40px" className="text-center">
             {/* {router.query.name} */}
           </H2>
+          <Spacer height="20" />
           <Spacer height="20" />
           <Container>
             <br />

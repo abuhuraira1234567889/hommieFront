@@ -40,6 +40,7 @@ export default function Home() {
         <Carasoule />
 
         <Spacer height="40" />
+        <Spacer height="40" />
         <Row>
           <Col style={{ textAlign: "center" }} md={12}>
             <h5 className={classes.weWork}>  How We Works </h5>
@@ -122,6 +123,7 @@ export default function Home() {
             </Col>
           </Row>
           <Spacer height="40" />
+          <Spacer height="40" />
         </Container>
         <div className={classes.bright}>
           <Container>
@@ -136,11 +138,13 @@ export default function Home() {
                 md={6}
               >
                 <img style={{ width: "80%" , marginRight: "90px"}} src={c3}></img>
+                <img style={{ width: "80%" , marginRight: "90px"}} src={c3}></img>
               </Col>
               <Col style={{ position: "relative" }} md={6}>
                 <H2 fontWeight="800" fontSize="18px" color="#06ae5a">
                   About The Hommie
                 </H2>
+                <H2 fontWeight="800" fontSize="50px" color="#102579">
                 <H2 fontWeight="800" fontSize="50px" color="#102579">
                   Connecting Both Worker <br />
                   And Client
@@ -173,6 +177,7 @@ export default function Home() {
                 background: "white",
                 padding: "20px",
                 borderRadius: "10px",
+                boxShadow: "0 5px 20px 15px rgb(5 7 80 / 6%)",
                 boxShadow: "0 5px 20px 15px rgb(5 7 80 / 6%)",
                 width: "49%",
               }}
@@ -253,6 +258,7 @@ export default function Home() {
                 background: "white",
                 padding: "20px",
                 borderRadius: "10px",
+                boxShadow: "0 5px 20px 15px rgb(5 7 80 / 6%)",
                 boxShadow: "0 5px 20px 15px rgb(5 7 80 / 6%)",
                 width: "49%",
               }}

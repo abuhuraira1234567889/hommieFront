@@ -26,6 +26,7 @@ const Wrapper = styled.div`
   //background: #f6f8ff;
   background: #f7f7f7;
   padding-bottom: 80px;
+  padding-bottom: 80px;
 `;
 const BottomButton = styled.div`
   background: #19c133;
@@ -637,6 +638,7 @@ export default function Services() {
         work={true}
       />{" "}
       <Wrapper style={{ position: "relative" }}>
+        <Spacer height="40" />
         <Spacer height="40" />
         <div style={{ textAlign: "center" }}>
           <P color="#19C133">What we Do</P>

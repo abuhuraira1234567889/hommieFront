@@ -97,6 +97,7 @@ export default function Requests() {
       </div>
 
       <Spacer height="40" />
+      <Spacer height="40" />
       <div>
       
         <Container style={{position:"relative"}}>
@@ -114,6 +115,7 @@ export default function Requests() {
                 <Spacer height="100" />
 
                 <P className="text-center" color="red" fontSize="30px">
+                  There is No Request to approve
                   There is No Request to approve
                 </P>
                 <Spacer height="100" />
@@ -239,6 +241,7 @@ export default function Requests() {
                       <Spacer height="100" />
 
                       <P className="text-center" color="red" fontSize="30px">
+                        There is No Request to approve
                         There is No Request to approve
                       </P>
                       <Spacer height="100" />
