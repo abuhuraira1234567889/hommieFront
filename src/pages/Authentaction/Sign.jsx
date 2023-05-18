@@ -11,6 +11,7 @@ import logo3 from "../../images/logo3.png";
 import { useNavigate } from "react-router-dom";
 import { BounceLoader } from "react-spinners";
 import { client } from "../../services/client";
+import { Link } from 'react-router-dom';
 
 import axios from "axios";
 
@@ -66,7 +67,7 @@ export default function Sign() {
         <div style={{ height: "100%" }}>
           <div style={{ height: "100%" }}>
             <Container style={{ height: "100%" }}>
-              <Row style={{ height: "800px", padding: "50px" }}>
+              <Row style={{ height: "600px", padding: "50px" }}>
                 <Col
                   className={classes.colLeft}
                   style={{ height: "100%", backgroundColor: "#72A0C1" }}
@@ -126,8 +127,8 @@ export default function Sign() {
                       flexDirection: "column",
                     }}
                   >
-                    <img width={"200px"} height="100px" src={logo3} />
-                    <H2 fontSize="30px" style={{ textAlign: "center" }}>
+                    {/* <img width={"140px"} height="80px" src={logo3} style={{marginTop: "12px"}} /> */}
+                    <H2 fontSize="28px" style={{ textAlign: "center" }}>
                       Sign In
                     </H2>
                     <P style={{ textAlign: "center" }}>
@@ -153,12 +154,13 @@ export default function Sign() {
                       style={{
                         textAlign: "right",
                         color: "blue",
-                        textDecoration: "underline",
+                        textDecoration: "none",
                       }}
                     >
-                      Don't have an account ? <strong> Sign Up </strong>
+                      Don't have an account ? <Link to="/sign-up" style={{fontWeight:"bold", color: "blue"}}>Sign Up</Link>
+                     
                     </P>
-                    <br />
+                  
                     <Button
                       onClick={() => {
                         onSubmit();
@@ -168,6 +170,9 @@ export default function Sign() {
                         borderRadius: "20px",
                         background: "#00d05e",
                         color: "white",
+                        marginTop:"12px",
+                        marginBottom:"12px",
+                        paddingBottom:'10px'
                       }}
                     >
                       Login

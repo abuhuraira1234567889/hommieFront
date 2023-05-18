@@ -10,6 +10,8 @@ import Slider from "../../images/slider.png";
 import logo3 from "../../images/logo3.png";
 import { useNavigate } from "react-router-dom";
 import { BounceLoader } from "react-spinners";
+import { Link } from 'react-router-dom';
+
 
 import axios from "axios";
 import { client } from "../../services/client";
@@ -67,7 +69,7 @@ export default function SignUp() {
         <div style={{ height: "100%" }}>
           <div style={{ height: "100%" }}>
             <Container style={{ height: "100%" }}>
-              <Row style={{ height: "800px", padding: "50px" }}>
+              <Row style={{ height: "600px", padding: "50px" }}>
                 <Col
                   className={classes.colLeft}
                   style={{ height: "100%", backgroundColor: "#72A0C1" }}
@@ -87,7 +89,7 @@ export default function SignUp() {
                   >
                     <img
                       style={{ borderRadius: "10px" }}
-                      width={"90%"}
+                      width={"70%"}
                       src={Slider}
                     />
                     <H2 fontWeight="800" fontSize="40px" color="purple">
@@ -120,22 +122,25 @@ export default function SignUp() {
                 >
                   <div
                     style={{
-                      height: "100%",
+                      height: "80%",
                       display: "flex",
                       alignItems: "center",
                       justifyContent: "center",
                       flexDirection: "column",
                     }}
                   >
-                    <img width={"200px"} height="100px" src={logo3} alt="" />
-                    <H2 fontSize="30px" style={{ textAlign: "center" }}>
+                    {/* <img width={"140px"} height="100px" src={logo3} alt="" style={{marginTop: "125px"}}/> */}
+                    <H2 fontSize="28px" style={{ textAlign: "center", marginTop: "140px",}}>
                       Register Yourself
                     </H2>
-                    <P style={{ textAlign: "center" }}>
+                    <P style={{ textAlign: "center" , marginTop: "2px"}}>
                       Kindly enter your required credentials carefully.
                     </P>
                     <br />
-                    <Input
+                    <Input 
+                     style={{
+                      height:"43px"
+                 }}
                       onChange={(e) => {
                         setEmail(e.target.value);
                       }}
@@ -143,6 +148,9 @@ export default function SignUp() {
                       placeholder="Enter Your Email"
                     />
                     <Input
+                        style={{
+                          height:"43px"
+                     }}
                       onChange={(e) => {
                         setPassword(e.target.value);
                       }}
@@ -150,6 +158,9 @@ export default function SignUp() {
                       placeholder="Enter Your Password"
                     />
                     <Input
+                        style={{
+                          height:"43px"
+                     }}
                       onChange={(e) => {
                         setConfirmPassword(e.target.value);
                       }}
@@ -159,25 +170,27 @@ export default function SignUp() {
                     {error && <p style={{ color: "red" }}>***{error}</p>}
                     <div style={{ width: "100%" }}>
                       <input
+                      
                         onChange={() => {
                           setisWorker(!isWorker);
                         }}
-                        style={{ marginRight: "12px" }}
+                        style={{ marginRight: "14px", boxShadow:"none" , width:"4%", marginTop:"6px" ,marginLeft:"14px"}}
                         type={"checkbox"}
                       />
-                      As a worker
+                      As a Client
                     </div>
                     <P
                       style={{
                         textAlign: "right",
                         color: "blue",
-                        textDecoration: "underline",
+                        textDecoration: "none",
                         cursor: "pointer",
                       }}
                     >
-                      Already have an account? <strong>Sign In</strong>
+                      Already have an account?  <Link to="/sign-in" style={{fontWeight:"bold", color: "blue"}}>Sign In</Link>
+                      {/* <strong>Sign In</strong> */}
                     </P>
-                    <br />
+                      <br />
 
                     <Button
                       onClick={() => {
@@ -188,6 +201,8 @@ export default function SignUp() {
                         borderRadius: "20px",
                         background: "#00d05e",
                         color: "white",
+                        marginBottom: "35px",
+                        paddingBottom: "50px"
                       }}
                     >
                       Sign Up

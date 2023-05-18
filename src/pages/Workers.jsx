@@ -426,7 +426,7 @@ export default function Workers() {
               {state ? (
                 state?.map((item, index) => {
                   return (
-                    <Col data-aos="fade-up" key={index} md={4}>
+                    <Col data-aos="fade-up" key={index} md={3}>
                       <Card style={{ padding: "0px", marginTop: "20px" }}>
                         <CardImages>
                           <img

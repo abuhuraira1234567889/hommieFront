@@ -8,11 +8,13 @@ import React, { useState, useEffect, useRef } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import logo3 from "../../images/logo3.png";
+import Spacer from "../Spacer";
 export default function Navbar() {
   const [id, setId] = useState("");
   const [lid, setLid] = useState("");
   const [client, setClient] = useState();
   const [isAdmin, setIsAdmin] = useState();
+  const [dashboard, setDashboard] = useState(false);
 
   const [existance, setExistance] = useState(false);
   const navigate = useNavigate();
@@ -51,7 +53,7 @@ export default function Navbar() {
   // });
   function logout() {
     localStorage.clear();
-   
+
     navigate("/");
   }
   return (
@@ -85,36 +87,110 @@ export default function Navbar() {
                   <a className={classes.name}>Workers</a>
                   {/* </a> */}
                 </li>
-               
               </ul>
             ) : (
               <ul className={classes.ull}>
+                {
+                  !lid ? (""):
                 <li
                   onClick={() => {
-                    navigate("/");
+                    setDashboard(!dashboard);
                   }}
                   className={classes.lii}
                 >
                   {/* <a href={'/'}> */}
-                  <a className={classes.name}>Home</a>
+                  <a className={classes.name}>Dashboard</a>
+                  {
+                    dashboard ? (
+                      <>
+                      <div style={{position:"absolute",background:"blue",padding:"20px 5px",borderRadius:"10px",color:"white",zIndex:"9999999"}}>
+                      <div onClick={()=>{
+                        navigate("/edit-profile")
+                      }}>
+                      Edit Profile
+                     </div>
+                     <Spacer height="20"/>
+                     {
+                        client==="false"?(
+                   
+                     <div onClick={()=>{
+                        navigate("/edit-profile")
+                      }} style={{}}>
+                      Detail Request
+                     </div>):<div onClick={()=>{
+                        navigate("/edit-post")
+                      }} style={{}}>
+                     Edit Post
+                     </div>
+                       }
+                     </div>
+                     </>
+                     
+                     )
+                     :""
+                  }
+                 
                   {/* </a> */}
                 </li>
-                <li
-                  onClick={() => {
-                    navigate("/about");
-                  }}
-                  className={classes.lii}
-                >
-                  <a className={classes.name}>About Us</a>
-                </li>
+                
+              }
+                {lid ? (
+                  !client === "false" || !client === "true" ? (
+                    <>
+                      <li
+                        onClick={() => {
+                          navigate("/");
+                        }}
+                        className={classes.lii}
+                      >
+                        {/* <a href={'/'}> */}
+                        <a className={classes.name}>Home</a>
+                        {/* </a> */}
+                      </li>
+                      <li
+                        onClick={() => {
+                          navigate("/about");
+                        }}
+                        className={classes.lii}
+                      >
+                        <a className={classes.name}>About Us</a>
+                      </li>
+                    </>
+                  ) : (
+                    ""
+                  )
+                ) : (
+                  <>
+                    <li
+                      onClick={() => {
+                        navigate("/");
+                      }}
+                      className={classes.lii}
+                    >
+                      {/* <a href={'/'}> */}
+                      <a className={classes.name}>Home</a>
+                      {/* </a> */}
+                    </li>
+                    <li
+                      onClick={() => {
+                        navigate("/about");
+                      }}
+                      className={classes.lii}
+                    >
+                      <a className={classes.name}>About Us</a>
+                    </li>
+                  </>
+                )}
                 <li
                   onClick={() => {
                     navigate("/Services");
                   }}
                   className={classes.lii}
                 >
-                  <a className={classes.name}>Services</a>
+                  <a className={classes.name}>{client===false?"Services":"Hire Worker"}</a>
                 </li>
+                {
+                  !lid?(
                 <li
                   onClick={() => {
                     navigate("/contact");
@@ -123,33 +199,33 @@ export default function Navbar() {
                 >
                   <a className={classes.name}>Contact</a>
                 </li>
-                {client === "false" ? (
-                  <li
-                    onClick={() => {
-                      navigate("/notification");
-                    }}
-                    className={classes.lii}
-                  >
-                    <a className={classes.name}>Requests</a>
-                  </li>
+                ):""
+              }
+                {lid ? (
+                  client === "false" ? (
+                    <li
+                      onClick={() => {
+                        navigate("/notification");
+                      }}
+                      className={classes.lii}
+                    >
+                      <a className={classes.name}>Notification</a>
+                    </li>
+                  ) : (
+                    <li
+                      onClick={() => {
+                        navigate("/request");
+                      }}
+                      className={classes.lii}
+                    >
+                      <a className={classes.name}>Requests</a>
+                    </li>
+                  )
                 ) : (
-                  <li
-                    onClick={() => {
-                      navigate("/request");
-                    }}
-                    className={classes.lii}
-                  >
-                    <a className={classes.name}>Notification</a>
-                  </li>
+                  ""
                 )}
 
-                <li
-                  onClick={() => navigate("/edit-profile")}
-                  className={classes.lii}
-                >
-                  <a className={classes.name}>Edit Profile</a>
-                </li>
-                {client === "true" ? (
+                {/* {client === "true" ? (
                   <li
                     onClick={() => navigate("/edit-post")}
                     className={classes.lii}
@@ -158,7 +234,7 @@ export default function Navbar() {
                   </li>
                 ) : (
                   ""
-                )}
+                )} */}
               </ul>
             )}
           </div>
@@ -168,13 +244,23 @@ export default function Navbar() {
                 <a style={{ color: "white" }}> Logout</a>
               </Button>
             ) : (
-              <Button
-                onClick={() => {
-                  navigate("/sign-up");
-                }}
-              >
-                <a style={{ color: "white" }}> Register</a>
-              </Button>
+              <>
+                <Button
+                  onClick={() => {
+                    navigate("/sign-in");
+                  }}
+                >
+                  <a style={{ color: "white" }}> Sign In</a>
+                </Button>
+                <Button
+                  style={{ marginLeft: "10px" }}
+                  onClick={() => {
+                    navigate("/sign-up");
+                  }}
+                >
+                  <a style={{ color: "white" }}> SignUp</a>
+                </Button>
+              </>
             )}
           </div>
         </div>

@@ -14,12 +14,12 @@ export default function AboutUs() {
 
       <HeroSection image={about4} page={"About"} />
 
-      <Spacer height="100" />
+      <Spacer height="40" />
       <H2 fontSize="30px" fontWeight="800" style={{ textAlign: "center" }}>
         About Us
       </H2>
       <Container style={{ width: "70%" }}>
-        <P style={{ textAlign: "center" }}>
+        <P style={{ textAlign: "center", fontSize:"18px" }}>
           We will basically provide a platform where client can contact with
           service providers according to their need. In Pakistan, there may be
           no one denying the significance of a house maid or any other service
@@ -32,10 +32,10 @@ export default function AboutUs() {
         <div style={{ textAlign: "center" }}>
           <img width={"350px"} src={aboutimg} />
           <Spacer />
-          <P>In this way need of both users will be fulfilled.</P>
+          <P style={{ textAlign: "center", fontSize:"18px" }}>In this way need of both users will be fulfilled.</P>
         </div>
       </Container>
-      <Spacer height="100" />
+      <Spacer height="40" />
       <Footer />
     </>
   );
