@@ -41,7 +41,7 @@ const BottomCard = styled.div`
   // padding-bottom: 20px;
   // border-top: 1px solid black;
 `;
-// const data = [
+
 //   {
 //     bg: '/assets/art.jpg',
 //     profilepic: '/assets/service-9.jpg',
@@ -111,6 +111,7 @@ export default function Notification() {
     const id = localStorage.getItem("id");
     if (id) {
       setId(id);
+      dispatch(getNotification(id));
     }
   }, []);
 
@@ -129,11 +130,10 @@ export default function Notification() {
     console.log(newRating);
   };
 
-  useEffect(() => {
-    console.log("i am the data", idlog);
+  // useEffect(() => {
+  //   console.log("i am the data", idlog);
 
-    dispatch(getNotification(idlog));
-  }, [idlog]);
+  // }, [idlog]);
   console.log(items, "this is items");
 
   return (

@@ -98,7 +98,7 @@ const BottomCard = styled.div`
 //   },
 // ];
 
-export default function AllProfile() {
+export default function PostApplied() {
   const dispatch = useDispatch();
   const [mount, setMount] = useState(false);
   const [open, setopen] = useState(false);
@@ -426,78 +426,7 @@ export default function AllProfile() {
               <BounceLoader size={100} color="#36d7b7" />
             </div>
           )}
-          <Container>
-            <div className="d-flex justify-content-end align-items-center">
-              <div style={{ position: "relative" }}>
-                <Input
-                  onChange={(e) => {
-                    setFilterValue(e.target.value);
-                  }}
-                  value={filterValue}
-                  placeholder="Enter Your text"
-                  height={"50px"}
-                  style={{ width: "350px", marginRight: "40px" }}
-                />
-                <div
-                  onClick={() => {
-                    Search();
-                  }}
-                  style={{
-                    position: "absolute",
-                    top: "27%",
-                    right: "14%",
-                    cursor: "pointer",
-                  }}
-                >
-                  <img
-                    width={"25px"}
-                    style={{ color: "black", background: "black" }}
-                    src={Download}
-                  />
-                </div>
-              </div>
-              <div
-                style={{
-                  marginRight: "0px",
-                  display: "flex",
-                  alignItems: "center",
-                }}
-              >
-                <input
-                  style={{
-                    marginRight: "10px",
-                    boxShadow: "none",
-                    width: "20px",
-                    height: "10px",
-                  }}
-                  type={"checkbox"}
-                />
-                Filter by City
-              </div>
-              <div>
-                {/* <input style={{ marginRight: '10px' }} type={'checkbox'} /> */}
-                {/* {
-                  router.query.name!=="Guard Detail"?
-             
-               " Filter by"
-                router.query.name === 'Tutor Detail' ? 'Subject' : 'Skills'
-              :""   } */}
-                {/* {router.query.name === "Maid Detail" ? (
-                  <div>
-                    <input style={{ marginRight: "10px" }} type={"checkbox"} />
-                    Filter by Skills
-                  </div>
-                ) : router.query.name === "Tutor Detail" ? (
-                  <div>
-                    <input style={{ marginRight: "10px" }} type={"checkbox"} />
-                    Filter by Subject
-                  </div>
-                ) : (
-                  ""
-                )} */}
-              </div>
-            </div>
-          </Container>
+         
           <Spacer height="2" />
           <Spacer height="2" />
           <H2 fontWeight="600" fontSize="40px" className="text-center">
@@ -510,7 +439,7 @@ export default function AllProfile() {
             <Row>
               {state.length > 0 ? (
                 state?.map((item, index) => {
-                  if (state2 == item.heading) {
+                  if (idlog == item.userId) {
                     return (
                       <Col data-aos="fade-up" key={index} md={4}>
                         <Card style={{ padding: "0px", marginTop: "2px"}}>
@@ -579,7 +508,7 @@ export default function AllProfile() {
                                   height={20}
                                   src={mail}
                                 />
-                                03********
+                               {item.contact}
                                 {/* {item.status==="none"?"03*********":item.status==="pending"?"03******":item.contact} */}
                               </span>
                             </Col>
@@ -646,19 +575,9 @@ export default function AllProfile() {
                             >
                               View Profile
                             </Button>
-                            <Spacer height="10" />
+                           
 
-                            <Button
-                              onClick={() => {
-                                requestHandler(item._id, item.userId);
-                              }}
-                              style={{
-                                width: "100%",
-                                borderRadius: "0 0px 10px 10px",
-                              }}
-                            >
-                              Request
-                            </Button>
+                         
                           </div>
                         </Card>
                       </Col>

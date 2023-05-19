@@ -90,50 +90,90 @@ export default function Navbar() {
               </ul>
             ) : (
               <ul className={classes.ull}>
-                {
-                  !lid ? (""):
-                <li
-                  onClick={() => {
-                    setDashboard(!dashboard);
-                  }}
-                  className={classes.lii}
-                >
-                  {/* <a href={'/'}> */}
-                  <a className={classes.name}>Dashboard</a>
-                  {
-                    dashboard ? (
+                {!lid ? (
+                  ""
+                ) : (
+                  <li
+                    onClick={() => {
+                      setDashboard(!dashboard);
+                    }}
+                    className={classes.lii}
+                  >
+                    {/* <a href={'/'}> */}
+                    <a className={classes.name}>Dashboard</a>
+                    {dashboard ? (
                       <>
-                      <div style={{position:"absolute",background:"blue",padding:"20px 5px",borderRadius:"10px",color:"white",zIndex:"9999999"}}>
-                      <div onClick={()=>{
-                        navigate("/edit-profile")
-                      }}>
-                      Edit Profile
-                     </div>
-                     <Spacer height="20"/>
-                     {
-                        client==="false"?(
-                   
-                     <div onClick={()=>{
-                        navigate("/edit-profile")
-                      }} style={{}}>
-                      Detail Request
-                     </div>):<div onClick={()=>{
-                        navigate("/edit-post")
-                      }} style={{}}>
-                     Edit Post
-                     </div>
-                       }
-                     </div>
-                     </>
-                     
-                     )
-                     :""
-                  }
-                 
-                  {/* </a> */}
-                </li>
-                
-              }
+                        <div
+                          style={{
+                            position: "absolute",
+                            background: "blue",
+                            padding: "20px 5px",
+                            borderRadius: "10px",
+                            color: "white",
+                            zIndex: "9999999",
+                          }}
+                        >
+                          <div
+                            onClick={() => {
+                              navigate("/edit-profile");
+                            }}
+                          >
+                            Edit Profile
+                          </div>
+                          <Spacer height="20" />
+                          {client === "false" ? (
+                            <div
+                              onClick={() => {
+                                navigate("/reuest-sent");
+                              }}
+                              style={{}}
+                            >
+                              Detail Request
+                            </div>
+                          ) : (
+                            <div
+                              onClick={() => {
+                                navigate("/edit-post");
+                              }}
+                              style={{}}
+                            >
+                              Edit Post
+                            </div>
+                          )}
+                          <Spacer height="20" />
+                          {client === "true" ? (
+                            <div
+                              onClick={() => {
+                                navigate("/detail-request");
+                              }}
+                            >
+                              Detail Req
+                            </div>
+                          ) : (
+                            ""
+                          )}
+                          <Spacer height="20" />
+
+                          {client === "true" ? (
+                            <div
+                              onClick={() => {
+                                navigate("/post-applied");
+                              }}
+                            >
+                              Post Applied
+                            </div>
+                          ) : (
+                            ""
+                          )}
+                        </div>
+                      </>
+                    ) : (
+                      ""
+                    )}
+
+                    {/* </a> */}
+                  </li>
+                )}
                 {lid ? (
                   !client === "false" || !client === "true" ? (
                     <>
@@ -187,20 +227,26 @@ export default function Navbar() {
                   }}
                   className={classes.lii}
                 >
-                  <a className={classes.name}>{client===false?"Services":"Hire Worker"}</a>
+                  <a className={classes.name}>
+                    {client === false
+                      ? "Services"
+                      : client === true
+                      ? "Hire Worker"
+                      : "Services"}
+                  </a>
                 </li>
-                {
-                  !lid?(
-                <li
-                  onClick={() => {
-                    navigate("/contact");
-                  }}
-                  className={classes.lii}
-                >
-                  <a className={classes.name}>Contact</a>
-                </li>
-                ):""
-              }
+                {!lid ? (
+                  <li
+                    onClick={() => {
+                      navigate("/contact");
+                    }}
+                    className={classes.lii}
+                  >
+                    <a className={classes.name}>Contact</a>
+                  </li>
+                ) : (
+                  ""
+                )}
                 {lid ? (
                   client === "false" ? (
                     <li

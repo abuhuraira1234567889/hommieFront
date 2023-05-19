@@ -138,7 +138,7 @@ export default function Home() {
                 md={6}
               >
                 <img style={{ width: "80%" , marginRight: "90px"}} src={c3}></img>
-                <img style={{ width: "80%" , marginRight: "90px"}} src={c3}></img>
+         
               </Col>
               <Col style={{ position: "relative" }} md={6}>
                 <H2 fontWeight="800" fontSize="18px" color="#06ae5a">

@@ -19,7 +19,6 @@ import Report from "../images/report (2).png";
 import { client } from "../services/client";
 import { BounceLoader } from "react-spinners";
 
-
 const CardImages = styled.div`
   position: relative;
 `;
@@ -38,7 +37,6 @@ export default function Requests() {
   const [id, setId] = useState("");
   const [loader, setLoader] = useState(false);
 
-
   const [data, setData] = useState([]);
   useEffect(() => {
     const localid = localStorage.getItem("id");
@@ -48,13 +46,15 @@ export default function Requests() {
     }
   }, []);
   async function approve(itemId) {
-    setLoader(true);  
+    setLoader(true);
     try {
       const res = await client.put(`updateRequest/${itemId}`);
-      console.log(res)
+      console.log(res);
       setApproved(true);
       alert("Request Approved");
-      window.location.reload();
+      // window.location.reload();
+      dispatch(getRequest());
+
       setLoader(false);
 
       console.log(res.data);
@@ -70,7 +70,9 @@ export default function Requests() {
       const res = await client.delete(`deleteRequest/${itemId}`);
       console.log(res);
       alert("Request Rejected");
-      window.location.reload();
+      // window.location.reload();
+      dispatch(getRequest());
+
       setLoader(false);
 
       console.log(res.data);
@@ -99,14 +101,18 @@ export default function Requests() {
       <Spacer height="40" />
       <Spacer height="40" />
       <div>
-      
-        <Container style={{position:"relative"}}>
-        {loader && (
-          <div style={{ position: "absolute", top: "50%", left: "50%" }}>
-            <BounceLoader size={100} color="#36d7b7" />
-          </div>
-        )}
-          <H2 className="text-center" fontWeight="800" color="#09150f" fontSize="50px">
+        <Container style={{ position: "relative" }}>
+          {loader && (
+            <div style={{ position: "absolute", top: "50%", left: "50%" }}>
+              <BounceLoader size={100} color="#36d7b7" />
+            </div>
+          )}
+          <H2
+            className="text-center"
+            fontWeight="800"
+            color="#09150f"
+            fontSize="50px"
+          >
             Total Requests For approval
           </H2>
           <Row>
@@ -116,15 +122,19 @@ export default function Requests() {
 
                 <P className="text-center" color="red" fontSize="30px">
                   There is No Request to approve
-                  There is No Request to approve
                 </P>
                 <Spacer height="100" />
               </>
             ) : (
               state.map((item, index) => {
-                if (id === item.clientId && item.isApproved===false) {
+                if (id === item.clientId && item.isApproved === false) {
                   return (
-                    <Col style={{marginBottom:"30px"}} data-aos="fade-up" key={index} md={4}>
+                    <Col
+                      style={{ marginBottom: "30px" }}
+                      data-aos="fade-up"
+                      key={index}
+                      md={4}
+                    >
                       <Card style={{ padding: "0px", marginTop: "20px" }}>
                         <CardImages>
                           <img
@@ -160,10 +170,9 @@ export default function Requests() {
                         >
                           {item.userName}
                         </H2>
-                       
+
                         <br />
-                        <Row >
-                         
+                        <Row>
                           <Col style={{ textAlign: "center" }} md={12}>
                             <span>
                               <img
@@ -173,11 +182,14 @@ export default function Requests() {
                                 height={20}
                                 src={mail}
                               />
-                             {item.userEmail}
+                              {item.userEmail}
                               {/* {item.status==="none"?"03*********":item.status==="pending"?"03******":item.contact} */}
                             </span>
                           </Col>
-                          <Col style={{ textAlign: "center",marginTop:"20px" }} md={12}>
+                          <Col
+                            style={{ textAlign: "center", marginTop: "20px" }}
+                            md={12}
+                          >
                             <span>
                               <img
                                 alt="Location"
@@ -186,14 +198,17 @@ export default function Requests() {
                                 height={20}
                                 src={mail}
                               />
-                             {item.userPhone}
+                              {item.userPhone}
                               {/* {item.status==="none"?"03*********":item.status==="pending"?"03******":item.contact} */}
                             </span>
                           </Col>
-                          <Col style={{ textAlign: "center",marginTop:"20px" }} md={12}>
+                          <Col
+                            style={{ textAlign: "center", marginTop: "20px" }}
+                            md={12}
+                          >
                             <span>
-                             
-                            He Wants to work with you. Please Approve the Request for work. You Can also Delete the Request
+                              He Wants to work with you. Please Approve the
+                              Request for work. You Can also Delete the Request
                               {/* {item.status==="none"?"03*********":item.status==="pending"?"03******":item.contact} */}
                             </span>
                           </Col>
@@ -209,11 +224,12 @@ export default function Requests() {
                               // setItems(item);
                               // setopen(true);
                               reject(item._id);
-                            }}s
+                            }}
+                            s
                             style={{
                               width: "100%",
                               borderRadius: "0 0px 10px 10px",
-                              background:"red"
+                              background: "red",
                             }}
                           >
                             Delete
@@ -222,32 +238,33 @@ export default function Requests() {
 
                           <Button
                             onClick={() => {
-                              approve(item._id)
+                              approve(item._id);
                             }}
                             style={{
                               width: "100%",
                               borderRadius: "0 0px 10px 10px",
                             }}
                           >
-                           Approve
+                            Approve
                           </Button>
                         </div>
                       </Card>
                     </Col>
                   );
-                } else {
-                  return (
-                    <>
-                      <Spacer height="100" />
-
-                      <P className="text-center" color="red" fontSize="30px">
-                        There is No Request to approve
-                        There is No Request to approve
-                      </P>
-                      <Spacer height="100" />
-                    </>
-                  );
                 }
+                //  else {
+                //   return (
+                //     <>
+                //       <Spacer height="100" />
+
+                //       <P className="text-center" color="red" fontSize="30px">
+                //         There is No Request to approve
+
+                //       </P>
+                //       <Spacer height="100" />
+                //     </>
+                //   );
+                // }
               })
             )}
           </Row>

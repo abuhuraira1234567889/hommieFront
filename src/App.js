@@ -19,6 +19,9 @@ import EditProfile from "./pages/EditProfle";
 import EditPost from "./pages/EditPost";
 import Users from "./pages/Users";
 import Workers from "./pages/Workers";
+import DetailReq from "./pages/DetailReq";
+import PostApplied from "./pages/PostApplied";
+import DetailRequestSent from "./pages/DetailRequestSent";
 
 function App() {
   const dispatch = useDispatch();
@@ -48,6 +51,12 @@ function App() {
           <Route path="/edit-post" element={<EditPost/>} />
           <Route path="/users" element={<Users/>} />
           <Route path="/worker" element={<Workers/>} />
+          <Route path="/detail-request" element={<DetailReq/>} />
+          <Route path="/post-applied" element={<PostApplied/>} />
+          <Route path="/reuest-sent" element={<DetailRequestSent/>} />
+
+
+
 
 
 

@@ -98,27 +98,28 @@ export default function Services() {
 
   async function NextSection(name) {
     if (isWorker === "true") {
-      setLoader(true);
-      try {
-        const res = await client.get(`checkClient/${id}`);
-        console.log(res);
-        if (res.status === 200) {
-          setExistanceModal(true);
-          setLoader(false);
-        } else if (res.status === 201) {
-          setFormHead(name);
-          setLoader(false);
-          setOpen(true);
-        }
-        // setFormHead(name);
-        // setLoader(false);
-      } catch (error) {
-        console.log(error);
-      }
+      setOpen(true);
+      setFormHead(name);
+      // try {
+      //   const res = await client.get(`checkClient/${id}`);
+      //   console.log(res);
+      //   if (res.status === 200) {
+      //     setExistanceModal(true);
+      //     setLoader(false);
+      //   } else if (res.status === 201) {
+      //     setFormHead(name);
+      //     setLoader(false);
+      //     setOpen(true);
+      //   }
+      //   // setFormHead(name);
+      //   // setLoader(false);
+      // } catch (error) {
+      //   console.log(error);
+      // }
 
       // setOpen(true);
     } else {
-      console.log(name)
+      console.log(name);
       dispatch(setCatagory(name));
       navigate("/profiles");
     }
@@ -192,9 +193,7 @@ export default function Services() {
         <P className="text-center">{error}</P>
         <Button
           style={{ width: "100%", fontSize: "20px" }}
-          onClick={() => {
-            window.location.reload();
-          }}
+         
         >
           OK
         </Button>
@@ -755,7 +754,7 @@ export default function Services() {
               <Card
                 style={{ height: "400px" }}
                 onClick={() => {
-                  NextSection("Security Guard");
+                  NextSection("Secruity Guard");
                 }}
                 // onClick={() => {
                 //   client === 'false' && existance === false
