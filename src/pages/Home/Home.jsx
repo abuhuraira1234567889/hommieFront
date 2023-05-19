@@ -145,7 +145,6 @@ export default function Home() {
                   About The Hommie
                 </H2>
                 <H2 fontWeight="800" fontSize="50px" color="#102579">
-                <H2 fontWeight="800" fontSize="50px" color="#102579">
                   Connecting Both Worker <br />
                   And Client
                 </H2>
@@ -177,7 +176,6 @@ export default function Home() {
                 background: "white",
                 padding: "20px",
                 borderRadius: "10px",
-                boxShadow: "0 5px 20px 15px rgb(5 7 80 / 6%)",
                 boxShadow: "0 5px 20px 15px rgb(5 7 80 / 6%)",
                 width: "49%",
               }}
@@ -258,7 +256,6 @@ export default function Home() {
                 background: "white",
                 padding: "20px",
                 borderRadius: "10px",
-                boxShadow: "0 5px 20px 15px rgb(5 7 80 / 6%)",
                 boxShadow: "0 5px 20px 15px rgb(5 7 80 / 6%)",
                 width: "49%",
               }}

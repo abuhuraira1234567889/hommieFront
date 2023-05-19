@@ -65,8 +65,6 @@ export default function Users() {
                 return (
                   <Col  data-aos="fade-up" key={index} md={3}>
                     <Card style={{ padding: "0px", marginTop: "20px", boxShadow: "0 5px 83px 40px rgb(40 40 40 / 8%)" }}>
-                  <Col  data-aos="fade-up" key={index} md={3}>
-                    <Card style={{ padding: "0px", marginTop: "20px", boxShadow: "0 5px 83px 40px rgb(40 40 40 / 8%)" }}>
                       <CardImages>
                         <img
                           alt="background"

@@ -24,10 +24,8 @@ export default function Contact() {
       <div>
         <Container>
           <H2 fontWeight="800" color="#09150f" fontSize="45px">
-          <H2 fontWeight="800" color="#09150f" fontSize="45px">
             If you Have Any Query, Don’t Hesitate <br /> Contact with us
           </H2>
-          <Spacer height="60" />
           <Spacer height="60" />
           <Row>
             <Col style={{ textAlign: "center" }} md={4}>
@@ -79,7 +77,6 @@ export default function Contact() {
               </div>
             </Col>
           </Row>
-          <Spacer height="80" />
           <Spacer height="80" />
         </Container>
       </div>
