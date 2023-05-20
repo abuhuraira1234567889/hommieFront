@@ -52,7 +52,7 @@ export default function SignUp() {
           setLoader(false);
         }
       } else {
-        console.log("passord npt match");
+        console.log("passord not match");
         setError("Your confirm password Does not match");
       }
     }

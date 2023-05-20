@@ -396,6 +396,7 @@ export default function AllProfile() {
                       marginRight: "20px",
                       padding: "10px",
                       width: "19px",
+                      boxShadow:"none",
                     }}
                     name="A"
                     type="radio"
@@ -513,7 +514,7 @@ export default function AllProfile() {
                   if (state2 == item.heading) {
                     return (
                       <Col data-aos="fade-up" key={index} md={4}>
-                        <Card style={{ padding: "0px", marginTop: "2px"}}>
+                        <Card style={{ padding: "0px", marginTop: "2px", height: "100%"}}>
                           <CardImages>
                             <img
                               alt="background"

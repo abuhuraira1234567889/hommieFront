@@ -39,8 +39,8 @@ export default function Home() {
       <div className={classes.HomeWrapper}>
         <Carasoule />
 
-        <Spacer height="40" />
-        <Spacer height="40" />
+        <Spacer height="10" />
+        <Spacer height="20" />
         <Row>
           <Col style={{ textAlign: "center" }} md={12}>
             <h5 className={classes.weWork}>  How We Works </h5>
@@ -122,8 +122,8 @@ export default function Home() {
               </p>
             </Col>
           </Row>
-          <Spacer height="40" />
-          <Spacer height="40" />
+          <Spacer height="25" />
+          <Spacer height="20" />
         </Container>
         <div className={classes.bright}>
           <Container>

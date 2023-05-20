@@ -1,0 +1,20 @@
+.table th{
+    
+    font-weight: 500;
+    font-size: 20px;
+    color: rgb(14, 27, 77);
+   
+
+}
+.table td{
+    font-weight: normal;
+    font-size: 16px;
+    color: black;
+    
+}
+.table .serial{
+    color: green;
+}
+/* .bgmain{
+    background-image: url('../../images/blue.jpg');
+} */

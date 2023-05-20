@@ -106,16 +106,26 @@ export default function Navbar() {
                         <div
                           style={{
                             position: "absolute",
-                            background: "blue",
+                            background: "white",
                             padding: "20px 5px",
                             borderRadius: "10px",
-                            color: "white",
+                            color: "black",
                             zIndex: "9999999",
+                            fontWeight: "normal",
+                            transition: 'color 0.3s'
+                            //height: "100px"
                           }}
+                         
                         >
-                          <div
+                          <div 
                             onClick={() => {
                               navigate("/edit-profile");
+                            }}
+                            onMouseEnter={(e) => {
+                              e.target.style.color = 'red';
+                            }}
+                            onMouseLeave={(e) => {
+                              e.target.style.color = 'black';
                             }}
                           >
                             Edit Profile
@@ -126,7 +136,12 @@ export default function Navbar() {
                               onClick={() => {
                                 navigate("/reuest-sent");
                               }}
-                              style={{}}
+                              onMouseEnter={(e) => {
+                                e.target.style.color = 'red';
+                              }}
+                              onMouseLeave={(e) => {
+                                e.target.style.color = 'black';
+                              }}
                             >
                               Detail Request
                             </div>
@@ -135,7 +150,12 @@ export default function Navbar() {
                               onClick={() => {
                                 navigate("/edit-post");
                               }}
-                              style={{}}
+                              onMouseEnter={(e) => {
+                                e.target.style.color = 'red';
+                              }}
+                              onMouseLeave={(e) => {
+                                e.target.style.color = 'black';
+                              }}
                             >
                               Edit Post
                             </div>
@@ -145,6 +165,12 @@ export default function Navbar() {
                             <div
                               onClick={() => {
                                 navigate("/detail-request");
+                              }}
+                              onMouseEnter={(e) => {
+                                e.target.style.color = 'red';
+                              }}
+                              onMouseLeave={(e) => {
+                                e.target.style.color = 'black';
                               }}
                             >
                               Detail Req
@@ -158,6 +184,12 @@ export default function Navbar() {
                             <div
                               onClick={() => {
                                 navigate("/post-applied");
+                              }}
+                              onMouseEnter={(e) => {
+                                e.target.style.color = 'red';
+                              }}
+                              onMouseLeave={(e) => {
+                                e.target.style.color = 'black';
                               }}
                             >
                               Post Applied

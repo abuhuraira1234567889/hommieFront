@@ -14,7 +14,7 @@ export default function AboutUs() {
 
       <HeroSection image={about4} page={"About"} />
 
-      <Spacer height="40" />
+      <Spacer height="20" />
       <H2 fontSize="30px" fontWeight="800" style={{ textAlign: "center" }}>
         About Us
       </H2>

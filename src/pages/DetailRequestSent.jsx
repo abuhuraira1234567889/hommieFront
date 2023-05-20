@@ -5,6 +5,7 @@ import { H2 } from "../component/Typography";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 import { getNotification } from "../services/redux/middleWare/getNotification";
+import './table.css';
 
 export default function DetailRequestSent() {
   const dispatch = useDispatch();
@@ -26,16 +27,16 @@ export default function DetailRequestSent() {
   return (
     <div>
       <Navbar />
-      <div style={{ background: "#e2e9e9" }}>
+      <div className="bgmain">
         <Spacer height="50" />
-        <H2 className="text-center">Request Sent</H2>
+        <H2 className="text-center" color="rgb(14, 27, 77)">Request Sent</H2>
         <Spacer height="30" />
 
-        <Container>
+        <Container style={{ background: "#e2e9e9" }}>
           <table class="table">
             <thead>
               <tr>
-                <th scope="col">#</th>
+                <th scope="col" className="serial">#</th>
 
                 <th scope="col">Name</th>
                 <th scope="col">Email</th>
@@ -50,12 +51,12 @@ export default function DetailRequestSent() {
                 ? state?.map((item, index) => {
                     return (
                       <tr key={index}>
-                        <td>{index + 1}</td>
+                        <td style={{color:"green" , fontWeight:"bold"}}>{index + 1}</td>
 
                         <td>{item.name ? item.name : "not given"}</td>
-                        <td>{item.cnic}</td>
-                        <td>{item.gender ? item.gender : "not given"}</td>
-                        <td>
+                        <td >{item.cnic}</td>
+                        <td style={{color:"blue"}}>{item.gender ? item.gender : "not given"}</td>
+                        <td style={{color:"red"}}>
                           {item.postApproved ? "Approved" : "Not Approved"}
                         </td>
                         <td>
