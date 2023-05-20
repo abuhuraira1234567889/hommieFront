@@ -300,7 +300,7 @@ export default function Services() {
                   setFullName({ ...fullName, [e.target.name]: e.target.value });
                 }}
                 type={"number"}
-                placeholder="E.g. +923313487297"
+                placeholder="E.g. 03313487297"
                 borderRadius="5px"
                 height="40px"
               />
@@ -316,7 +316,7 @@ export default function Services() {
                   setFullName({ ...fullName, [e.target.name]: e.target.value });
                 }}
                 type={"number"}
-                placeholder="E.g. XXXXX-XXXXXXX-X"
+                placeholder="E.g. XXXXXXXXXXXXX"
                 borderRadius="5px"
                 height="40px"
               />
@@ -637,8 +637,8 @@ export default function Services() {
         work={true}
       />{" "}
       <Wrapper style={{ position: "relative" }}>
-        <Spacer height="40" />
-        <Spacer height="40" />
+        <Spacer height="20" />
+        <Spacer height="20" />
         <div style={{ textAlign: "center" }}>
           <P color="#19C133">What we Do</P>
           <H2 fontSize="55px" fontWeight="800">
@@ -711,7 +711,7 @@ export default function Services() {
               <Card
                 style={{ height: "400px" }}
                 onClick={() => {
-                  NextSection("Home Tutor");
+                    NextSection("Home Tutor");
                 }}
                 // onClick={() => {
                 //   client === 'false' && existance === false
