@@ -191,12 +191,7 @@ export default function Services() {
           Successfull
         </H2>
         <P className="text-center">{error}</P>
-        <Button
-          style={{ width: "100%", fontSize: "20px" }}
-         
-        >
-          OK
-        </Button>
+        <Button style={{ width: "100%", fontSize: "20px" }}>OK</Button>
       </ModalView>
       {!existance && (
         <ModalView show={open} setshow={setOpen}>
@@ -665,7 +660,9 @@ export default function Services() {
               <Card
                 style={{ height: "400px" }}
                 onClick={() => {
-                  NextSection("Maid");
+                  if (id) {
+                    NextSection("Maid");
+                  }
                 }}
                 // onClick={() => {
                 //   client === 'false' && existance === false
@@ -702,16 +699,22 @@ export default function Services() {
                   Kitchen, Baby-sitting, Cooking. Which will help you in
                   maintaining your home.
                 </P>
-                <BottomButton>
-                  <img width={"20px"} src={right} />
-                </BottomButton>
+                {id ? (
+                  <BottomButton>
+                    <img width={"20px"} src={right} />
+                  </BottomButton>
+                ) : (
+                  ""
+                )}
               </Card>
             </Col>
             <Col md={6}>
               <Card
                 style={{ height: "400px" }}
                 onClick={() => {
+                  if (id) {
                     NextSection("Home Tutor");
+                  }
                 }}
                 // onClick={() => {
                 //   client === 'false' && existance === false
@@ -745,16 +748,22 @@ export default function Services() {
                   education , academic performances and will dicuss student
                   progress with parents.
                 </P>
-                <BottomButton>
-                  <img width={"20px"} src={right} />
-                </BottomButton>
+                {id ? (
+                  <BottomButton>
+                    <img width={"20px"} src={right} />
+                  </BottomButton>
+                ) : (
+                  ""
+                )}
               </Card>
             </Col>
             <Col style={{ marginTop: "50px" }} md={6}>
               <Card
                 style={{ height: "400px" }}
                 onClick={() => {
-                  NextSection("Secruity Guard");
+                  if (id) {
+                    NextSection("Secruity Guard");
+                  }
                 }}
                 // onClick={() => {
                 //   client === 'false' && existance === false
@@ -798,9 +807,13 @@ export default function Services() {
                   We offer Security Guards which will help in monitoring
                   surveillance equipment and inspecting buildings and equipment.
                 </P>
-                <BottomButton>
-                  <img width={"20px"} src={right} />
-                </BottomButton>
+                {id ? (
+                  <BottomButton>
+                    <img width={"20px"} src={right} />
+                  </BottomButton>
+                ) : (
+                  ""
+                )}
               </Card>
             </Col>
 
@@ -808,7 +821,9 @@ export default function Services() {
               <Card
                 style={{ height: "400px" }}
                 onClick={() => {
-                  NextSection("Electrician");
+                  if (id) {
+                    NextSection("Electrician");
+                  }
                 }}
                 // onClick={() => {
                 //   client === 'false' && existance === false
@@ -853,9 +868,13 @@ export default function Services() {
                   electrical wiring, circuit breakers, systems and fixtures in
                   building.
                 </P>
-                <BottomButton>
-                  <img width={"20px"} src={right} />
-                </BottomButton>
+                {id ? (
+                  <BottomButton>
+                    <img width={"20px"} src={right} />
+                  </BottomButton>
+                ) : (
+                  ""
+                )}
               </Card>
             </Col>
             {/* <Col style={{ marginTop: '50px' }} md={4}>

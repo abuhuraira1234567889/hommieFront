@@ -63,7 +63,7 @@ export default function Navbar() {
         <div className={classes.MainNav}>
           <div className={classes.LeftSide}>
             <div className={classes.NavLogo}>
-              <img height={"60px"} src={logo3} />
+              <img height={"60px"} width={"100px"} src={logo3} />
             </div>
             {isAdmin === "true" ? (
               <ul className={classes.ull}>
@@ -85,6 +85,69 @@ export default function Navbar() {
                 >
                   {/* <a href={'/'}> */}
                   <a className={classes.name}>Workers</a>
+                  {/* </a> */}
+                </li>
+                <li
+                  onClick={() => {
+                    setDashboard(!dashboard);
+                  }}
+                  className={classes.lii}
+                >
+                  {/* <a href={'/'}> */}
+                  <a className={classes.name}>Dashboard</a>
+                  {dashboard ? (
+                    <>
+                      <div
+                        style={{
+                          position: "absolute",
+                          background: "white",
+                          padding: "20px 5px",
+                          borderRadius: "10px",
+                          color: "black",
+                          zIndex: "9999999",
+                          fontWeight: "normal",
+                          transition: "color 0.3s",
+                          //height: "100px"
+                        }}
+                      >
+                        
+
+                        <Spacer height="20" />
+
+                        <div
+                          onClick={() => {
+                            navigate("/detail-request");
+                          }}
+                          onMouseEnter={(e) => {
+                            e.target.style.color = "red";
+                          }}
+                          onMouseLeave={(e) => {
+                            e.target.style.color = "black";
+                          }}
+                        >
+                          Detail Req
+                        </div>
+                        <Spacer height="20" />
+
+                        <div
+                          onClick={() => {
+                            navigate("/post-applied");
+                          }}
+                          onMouseEnter={(e) => {
+                            e.target.style.color = "red";
+                          }}
+                          onMouseLeave={(e) => {
+                            e.target.style.color = "black";
+                          }}
+                        >
+                          Total Post
+                        </div>
+                      </div>
+                    </>
+                  ) : (
+                    ""
+                  )}
+
                   {/* </a> */}
                 </li>
               </ul>
@@ -112,20 +175,19 @@ export default function Navbar() {
                             color: "black",
                             zIndex: "9999999",
                             fontWeight: "normal",
-                            transition: 'color 0.3s'
+                            transition: "color 0.3s",
                             //height: "100px"
                           }}
-                         
                         >
-                          <div 
+                          <div
                             onClick={() => {
                               navigate("/edit-profile");
                             }}
                             onMouseEnter={(e) => {
-                              e.target.style.color = 'red';
+                              e.target.style.color = "red";
                             }}
                             onMouseLeave={(e) => {
-                              e.target.style.color = 'black';
+                              e.target.style.color = "black";
                             }}
                           >
                             Edit Profile
@@ -137,10 +199,10 @@ export default function Navbar() {
                                 navigate("/reuest-sent");
                               }}
                               onMouseEnter={(e) => {
-                                e.target.style.color = 'red';
+                                e.target.style.color = "red";
                               }}
                               onMouseLeave={(e) => {
-                                e.target.style.color = 'black';
+                                e.target.style.color = "black";
                               }}
                             >
                               Detail Request
@@ -151,10 +213,10 @@ export default function Navbar() {
                                 navigate("/edit-post");
                               }}
                               onMouseEnter={(e) => {
-                                e.target.style.color = 'red';
+                                e.target.style.color = "red";
                               }}
                               onMouseLeave={(e) => {
-                                e.target.style.color = 'black';
+                                e.target.style.color = "black";
                               }}
                             >
                               Edit Post
@@ -167,10 +229,10 @@ export default function Navbar() {
                                 navigate("/detail-request");
                               }}
                               onMouseEnter={(e) => {
-                                e.target.style.color = 'red';
+                                e.target.style.color = "red";
                               }}
                               onMouseLeave={(e) => {
-                                e.target.style.color = 'black';
+                                e.target.style.color = "black";
                               }}
                             >
                               Detail Req
@@ -186,10 +248,10 @@ export default function Navbar() {
                                 navigate("/post-applied");
                               }}
                               onMouseEnter={(e) => {
-                                e.target.style.color = 'red';
+                                e.target.style.color = "red";
                               }}
                               onMouseLeave={(e) => {
-                                e.target.style.color = 'black';
+                                e.target.style.color = "black";
                               }}
                             >
                               Post Applied

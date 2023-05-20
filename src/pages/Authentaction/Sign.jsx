@@ -11,7 +11,7 @@ import logo3 from "../../images/logo3.png";
 import { useNavigate } from "react-router-dom";
 import { BounceLoader } from "react-spinners";
 import { client } from "../../services/client";
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
 
 import axios from "axios";
 
@@ -30,21 +30,25 @@ export default function Sign() {
       const res = await client.post("signin", {
         email: email,
         password: password,
-        
       });
       try {
         if (res.status === 200) {
-          
           console.log(res.data.data);
-          
-          
+
           localStorage.setItem("id", res.data.data._id);
           localStorage.setItem("email", res.data.data.Email);
           localStorage.setItem("isWorker", res.data.data.isWorker);
           localStorage.setItem("isAdmin", res.data.data.isAdmin);
-          
-          setLoader(false);
-          navigate("/");
+          if(res.data.data.isAdmin===true){
+            navigate("/dashboard")
+          }
+          else if (res.data.data.isUpdated === true) {
+            setLoader(false);
+            navigate("/services");
+          }
+          else{
+            navigate("/edit-profile")
+          }
         }
       } catch (error) {
         // console.log(error);
@@ -157,10 +161,15 @@ export default function Sign() {
                         textDecoration: "none",
                       }}
                     >
-                      Don't have an account ? <Link to="/sign-up" style={{fontWeight:"bold", color: "blue"}}>Sign Up</Link>
-                     
+                      Don't have an account ?{" "}
+                      <Link
+                        to="/sign-up"
+                        style={{ fontWeight: "bold", color: "blue" }}
+                      >
+                        Sign Up
+                      </Link>
                     </P>
-                  
+
                     <Button
                       onClick={() => {
                         onSubmit();
@@ -170,9 +179,9 @@ export default function Sign() {
                         borderRadius: "20px",
                         background: "#00d05e",
                         color: "white",
-                        marginTop:"12px",
-                        marginBottom:"12px",
-                        paddingBottom:'10px'
+                        marginTop: "12px",
+                        marginBottom: "12px",
+                        paddingBottom: "10px",
                       }}
                     >
                       Login

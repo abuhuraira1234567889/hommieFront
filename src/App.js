@@ -22,6 +22,7 @@ import Workers from "./pages/Workers";
 import DetailReq from "./pages/DetailReq";
 import PostApplied from "./pages/PostApplied";
 import DetailRequestSent from "./pages/DetailRequestSent";
+import Dashboard from "./component/Dashboard/Dashboard";
 
 function App() {
   const dispatch = useDispatch();
@@ -54,6 +55,8 @@ function App() {
           <Route path="/detail-request" element={<DetailReq/>} />
           <Route path="/post-applied" element={<PostApplied/>} />
           <Route path="/reuest-sent" element={<DetailRequestSent/>} />
+          <Route path="/dashboard" element={<Dashboard/>} />
+
 
 
 

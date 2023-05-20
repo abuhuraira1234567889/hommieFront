@@ -45,7 +45,7 @@ const BottomCard = styled.div`
   // padding-bottom: 20px;
   // border-top: 1px solid black;
 `;
-// const data = [
+
 //   {
 //     bg: "/assets/art.jpg",
 //     profilepic: "/assets/service-9.jpg",
@@ -110,9 +110,10 @@ export default function PostApplied() {
   const [filterValue, setFilterValue] = useState("");
   const [items, setItems] = useState();
   const [loader, setLoader] = useState(false);
+  const [isAdmin, setIsAdmin] = useState();
   const state = useSelector((state) => state.getClient.getClientData);
   const state2 = useSelector((state) => state.user.catagory);
-  
+
   // console.log(state, "this is state");
 
   const reportdata = [
@@ -155,6 +156,8 @@ export default function PostApplied() {
   }
   useEffect(() => {
     const id = localStorage.getItem("id");
+    const isAdmin = localStorage.getItem("isAdmin");
+    setIsAdmin(isAdmin);
     setId(id);
   }, []);
 
@@ -426,7 +429,7 @@ export default function PostApplied() {
               <BounceLoader size={100} color="#36d7b7" />
             </div>
           )}
-         
+
           <Spacer height="2" />
           <Spacer height="2" />
           <H2 fontWeight="600" fontSize="40px" className="text-center">
@@ -442,7 +445,7 @@ export default function PostApplied() {
                   if (idlog == item.userId) {
                     return (
                       <Col data-aos="fade-up" key={index} md={4}>
-                        <Card style={{ padding: "0px", marginTop: "2px"}}>
+                        <Card style={{ padding: "0px", marginTop: "2px" }}>
                           <CardImages>
                             <img
                               alt="background"
@@ -508,7 +511,7 @@ export default function PostApplied() {
                                   height={20}
                                   src={mail}
                                 />
-                               {item.contact}
+                                {item.contact}
                                 {/* {item.status==="none"?"03*********":item.status==="pending"?"03******":item.contact} */}
                               </span>
                             </Col>
@@ -575,9 +578,146 @@ export default function PostApplied() {
                             >
                               View Profile
                             </Button>
-                           
+                          </div>
+                        </Card>
+                      </Col>
+                    );
+                  } else if (isAdmin === "true") {
+                    return (
+                      <Col data-aos="fade-up" key={index} md={4}>
+                        <Card style={{ padding: "0px", marginTop: "2px" }}>
+                          <CardImages>
+                            <img
+                              alt="background"
+                              style={{
+                                borderRadius: "20px",
+                                width: "100%",
+                              }}
+                              // width='100%'
+                              width={2000}
+                              height={200}
+                              src={art}
+                            />
 
-                         
+                            <ProfileImage>
+                              <img
+                                alt="profile"
+                                style={{ borderRadius: "50px" }}
+                                width={100}
+                                height={100}
+                                src={item.image}
+                              />
+                            </ProfileImage>
+                          </CardImages>
+                          <br />
+                          <br />
+
+                          <H2
+                            lineHeight="50px"
+                            fontWeight="600"
+                            fontSize="30px"
+                            color="#0e1b4d"
+                          >
+                            {item.name}
+                          </H2>
+                          <P
+                            style={{
+                              paddingLeft: "25px",
+                              paddingRight: "25px",
+                            }}
+                          >
+                            {item.experince}
+                          </P>
+                          <br />
+                          <Row>
+                            <Col style={{ textAlign: "right" }} md={6}>
+                              <span style={{ marginRight: "20px" }}>
+                                <img
+                                  alt="Location"
+                                  style={{ marginRight: "10px" }}
+                                  width={25}
+                                  height={25}
+                                  src={adress}
+                                />
+                                {item.city}
+                              </span>
+                            </Col>
+                            <Col style={{ textAlign: "left" }} md={6}>
+                              <span>
+                                <img
+                                  alt="Location"
+                                  style={{ marginRight: "10px" }}
+                                  width={20}
+                                  height={20}
+                                  src={mail}
+                                />
+                                {item.contact}
+                                {/* {item.status==="none"?"03*********":item.status==="pending"?"03******":item.contact} */}
+                              </span>
+                            </Col>
+                          </Row>
+
+                          <hr />
+                          <Spacer height="6" />
+                          <BottomCard>
+                            <Row>
+                              <Col md={6}>
+                                <P
+                                  lineHeight={"10px"}
+                                  fontSize="18px"
+                                  style={{
+                                    marginBottom: "10px",
+                                    color: "blue",
+                                  }}
+                                >
+                                  Rate Me
+                                </P>
+                                <div
+                                  style={{
+                                    display: "flex",
+                                    justifyContent: "center",
+                                  }}
+                                >
+                                  <ReactStars
+                                    count={5}
+                                    onChange={ratingChanged}
+                                    size={28}
+                                    activeColor="#ffd700"
+                                  />
+                                </div>
+                              </Col>
+                              <Col md={6}>
+                                <P
+                                  onClick={() => setReport(true)}
+                                  color="red"
+                                  lineHeight={"10px"}
+                                  fontSize="18px"
+                                >
+                                  Report <br />
+                                  <img
+                                    src={Report}
+                                    alt=""
+                                    width={35}
+                                    style={{ marginTop: "10px" }}
+                                  />
+                                </P>
+                              </Col>
+                            </Row>
+                          </BottomCard>
+                          <Spacer height="10" />
+                          <div className="d-flex">
+                            <Button
+                              onClick={() => {
+                                setItems(item);
+                                setopen(true);
+                              }}
+                              style={{
+                                width: "100%",
+                                borderRadius: "0 0px 10px 10px",
+                              }}
+                            >
+                              View Profile
+                            </Button>
                           </div>
                         </Card>
                       </Col>

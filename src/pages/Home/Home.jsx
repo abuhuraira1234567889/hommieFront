@@ -183,7 +183,7 @@ export default function Home() {
             >
               <div style={{ display: "flex", justifyContent: "space-between" }}>
                 <div>
-                  <img width={200} src={maidService} />
+                  <img width={"1000px"} src={maidService} />
                 </div>
                 <div style={{ marginLeft: "20px" }}>
                   <H2 fontSize="24px" fontWeight="800">
@@ -222,7 +222,7 @@ export default function Home() {
             >
               <div style={{ display: "flex", justifyContent: "space-between" }}>
                 <div>
-                  <img width={200} src={homeTutor} />
+                  <img width={"1000px"}  src={homeTutor} />
                 </div>
                 <div style={{ marginLeft: "20px" }}>
                   <H2 fontSize="24px" fontWeight="800">
@@ -263,7 +263,7 @@ export default function Home() {
             >
               <div style={{ display: "flex", justifyContent: "space-between" }}>
                 <div>
-                  <img width={200} src={securityGuard} />
+                  <img width={"1000px"} src={securityGuard} />
                 </div>
                 <div style={{ marginLeft: "20px" }}>
                   <H2 fontSize="24px" fontWeight="800">
@@ -301,7 +301,7 @@ export default function Home() {
             >
               <div style={{ display: "flex", justifyContent: "space-between" }}>
                 <div>
-                  <img width={200} src={electrician} />
+                  <img width={"1000px"} src={electrician} />
                 </div>
                 <div style={{ marginLeft: "20px" }}>
                   <H2 fontSize="24px" fontWeight="800">
