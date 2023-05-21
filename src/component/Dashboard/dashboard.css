@@ -55,4 +55,27 @@ background: #1d1d1d;
 }
 .sidebar-item:hover {
  color:#a1a0a0;
+
 }
+
+.card-header h5{
+  font-weight: bold;
+  color: rgb(14, 27, 77);
+}
+
+
+.table.table-light thead th, .table .thead-light th{
+  /* color : #0f1525; */
+  color: rgb(14, 27, 77);
+  font-weight: bolder;
+  font-size: 14px;
+}
+
+.table td{
+  color: black;
+  font-size: 14px;
+}
+table.table a{
+  font-size: 14px;
+}
+

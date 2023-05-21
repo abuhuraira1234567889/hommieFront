@@ -169,7 +169,7 @@ export default function Services() {
         });
         console.log(res.data.response);
         if (res.status === 200) {
-          setError("Congratulation On borard ... Your successfully register");
+          setError("Congratulation On board ... You are successfully registered");
 
           setOpen(false);
         }
@@ -762,7 +762,7 @@ export default function Services() {
                 style={{ height: "400px" }}
                 onClick={() => {
                   if (id) {
-                    NextSection("Secruity Guard");
+                    NextSection("Security Guard");
                   }
                 }}
                 // onClick={() => {

@@ -27,14 +27,21 @@ export default function DetailRequestSent() {
   return (
     <div>
       <Navbar />
-      <div className="bgmain">
-        <Spacer height="50" />
-        <H2 className="text-center" color="rgb(14, 27, 77)">Request Sent</H2>
-        <Spacer height="30" />
+      <main class="py-6 bg-surface-secondary">
+      <div style={{height:"79vh"}}>
+       
 
-        <Container style={{ background: "#e2e9e9" }}>
+        <Container>
+        <Spacer height="20" />
+          <div class="card shadow border-0 mb-7">
+          <div class="card-header">
+                  <H2 className="text-center" color="rgb(14, 27, 77)">
+                    Request Sent
+                  </H2>
+                </div>
+          
           <table class="table">
-            <thead>
+            <thead class="thead-light">
               <tr>
                 <th scope="col" className="serial">#</th>
 
@@ -64,8 +71,8 @@ export default function DetailRequestSent() {
                             src={item.image}
                             alt="profile"
                             style={{
-                              width: "30px",
-                              height: "30px",
+                              width: "35px",
+                              height: "35px",
                               borderRadius: "50%",
                             }}
                           />
@@ -82,8 +89,13 @@ export default function DetailRequestSent() {
               </tr> */}
             </tbody>
           </table>
+          </div>
         </Container>
+
       </div>
+      </main>
     </div>
+   
+
   );
 }

@@ -399,8 +399,8 @@ export default function Notification() {
           <Row>
             {state?.map((item, index) => {
               return (
-                <Col data-aos="fade-up" key={index} md={4}>
-                  <Card style={{ padding: "0px", marginTop: "20px" }}>
+                <Col data-aos="fade-up" key={index} md={4} >
+                  <Card style={{ padding: "0px", marginTop: "0px" }}>
                     <CardImages>
                       <img
                         alt="background"
@@ -410,14 +410,14 @@ export default function Notification() {
                         }}
                         // width='100%'
                         width={2000}
-                        height={200}
+                        height={100}
                         src={art}
                       />
-
+                      
                       <ProfileImage>
                         <img
                           alt="profile"
-                          style={{ borderRadius: "50px" }}
+                          style={{ borderRadius: "50px", marginBottom: "10px"}}
                           width={100}
                           height={100}
                           src={item.image}
@@ -432,6 +432,7 @@ export default function Notification() {
                       fontWeight="600"
                       fontSize="30px"
                       color="#0e1b4d"
+                      style={{marginTop: "8px"}}
                     >
                       {item.name}
                     </H2>

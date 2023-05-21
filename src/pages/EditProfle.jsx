@@ -91,6 +91,7 @@ export default function EditProfile() {
   return (
     <>
       <Navbar />
+      <main class="py-6 bg-surface-secondary">
       <div class="wrapper">
         {loader && (
           <div style={{ position: "absolute", top: "50%", left: "50%" }}>
@@ -238,6 +239,7 @@ export default function EditProfile() {
           </div>
         </div>
       </div>
+      </main>
       <Footer />
     </>
   );

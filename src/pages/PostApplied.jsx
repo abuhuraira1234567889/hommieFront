@@ -399,6 +399,7 @@ export default function PostApplied() {
                       marginRight: "20px",
                       padding: "10px",
                       width: "19px",
+                      boxShadow:"none",
                     }}
                     name="A"
                     type="radio"

@@ -11,6 +11,16 @@ import { ContactSupportOutlined } from "@mui/icons-material";
 import { useNavigate } from "react-router-dom";
 import { client } from "../../services/client";
 import { getRequest } from "../../services/redux/middleWare/getRequest";
+import maidicon from "../../images/maid.png";
+import electricianicon from "../../images/electrician.png";
+import tutoricon from "../../images/tutor.png";
+import securityicon from "../../images/policeman (1).png";
+import sguardicon from "../../images/policeman.png";
+import workericon from "../../images/worker.png";
+import usericon from "../../images/users.png";
+import pendingicon from "../../images/file.png";
+import approveicon from "../../images/verify (1).png";
+import logouticon from "../../images/check-out.png";
 
 export default function Dashboard() {
   const [showSidebar, onSetShowSidebar] = useState("user");
@@ -69,8 +79,8 @@ export default function Dashboard() {
         id="navbarVertical"
       >
         <div class="container-fluid">
-          <div>
-            <img height={"60px"} width={"100px"} src={logo3} />
+          <div style={{marginBottom:"20px", marginLeft:"42px" }}>
+            <img height={"130px"} width={"130px"} src={logo3} />
           </div>
 
           {/* <div class="navbar-user d-lg-none">
@@ -122,9 +132,14 @@ export default function Dashboard() {
                 }}
                 class="nav-item"
               >
-                <a class="nav-link" href="#">
-                  <i class="bi bi-house"></i> Workers
-                </a>
+                   
+                    <a class="nav-link" href="#">
+                     <i class="">
+                       <img src={workericon} alt="worker icon" height={35} width={35}/>
+                    </i> Workers
+                    </a>
+                
+                
               </li>
               <li
                 onClick={() => {
@@ -133,7 +148,9 @@ export default function Dashboard() {
                 class="nav-item"
               >
                 <a class="nav-link" href="#">
-                  <i class="bi bi-bar-chart"></i> Users
+                  <i class="">
+                          <img src={usericon} alt="worker icon" height={35} width={35}/>
+                  </i> Users
                 </a>
               </li>
               <li
@@ -143,7 +160,11 @@ export default function Dashboard() {
                 class="nav-item"
               >
                 <a class="nav-link" href="#">
-                  <i class="bi bi-bar-chart"></i> Approved Request
+                  <i class="">
+                        {/* <img src="https://cdn-icons-png.flaticon.com/512/748/748463.png?w=740&t=st=1684674009~exp=1684674609~hmac=29a902dcad4fa0bf718aec73e747d55678b6175fcb0193a468b85ab697f52543" 
+                        alt=""  height={35} width={35}/>   */}
+                         <img src={approveicon} alt="worker icon" height={35} width={35}/>
+                  </i> Approved Request
                 </a>
               </li>
               <li
@@ -153,7 +174,9 @@ export default function Dashboard() {
                 class="nav-item"
               >
                 <a class="nav-link" href="#">
-                  <i class="bi bi-bar-chart"></i> Pending Request
+                  <i class="">
+                  <img src={pendingicon} alt="pending req" height={35} width={35}/>
+                    </i> Pending Request
                 </a>
               </li>
             </ul>
@@ -170,8 +193,10 @@ export default function Dashboard() {
                 }}
                 class="nav-item"
               >
-                <a class="nav-link" href="#">
-                  <i class="bi bi-box-arrow-left"></i> Logout
+                <a class="nav-link" href="#" style={{paddingLeft:"12px", fontWeight:"bold", fontSize:"18px" ,}}>
+                  <i class="">
+                      <img src={logouticon} alt="logging out" height={35} width={35}/>
+                    </i> Logout
                 </a>
               </li>
             </ul>
@@ -197,7 +222,9 @@ export default function Dashboard() {
                         </div>
                         <div class="col-auto">
                           <div class="icon icon-shape bg-tertiary text-white text-lg rounded-circle">
-                            <i class="bi bi-credit-card"></i>
+                            <i class="">
+                              <img src={maidicon} alt="maid icon"/>
+                            </i>
                           </div>
                         </div>
                       </div>
@@ -218,7 +245,9 @@ export default function Dashboard() {
                         </div>
                         <div class="col-auto">
                           <div class="icon icon-shape bg-primary text-white text-lg rounded-circle">
-                            <i class="bi bi-people"></i>
+                            <i class="">
+                                <img src={electricianicon} alt="electrician icon"/>
+                            </i>
                           </div>
                         </div>
                       </div>
@@ -239,7 +268,9 @@ export default function Dashboard() {
                         </div>
                         <div class="col-auto">
                           <div class="icon icon-shape bg-info text-white text-lg rounded-circle">
-                            <i class="bi bi-clock-history"></i>
+                            <i class="">
+                                 <img src={tutoricon} alt="tutor icon"/>
+                            </i>
                           </div>
                         </div>
                       </div>
@@ -260,7 +291,9 @@ export default function Dashboard() {
                         </div>
                         <div class="col-auto">
                           <div class="icon icon-shape bg-warning text-white text-lg rounded-circle">
-                            <i class="bi bi-minecart-loaded"></i>
+                            <i class="">
+                               <img src={securityicon} alt="guard icon"/> 
+                            </i>
                           </div>
                         </div>
                       </div>
@@ -276,14 +309,14 @@ export default function Dashboard() {
                   <table class="table table-hover table-nowrap">
                     <thead class="thead-light">
                       <tr>
-                        <th scope="col">Name</th>
-                        <th scope="col">Cnic</th>
-                        <th scope="col">Gender</th>
-                        <th scope="col">Maritial Status</th>
-                        <th scope="col">Contact No</th>
-                        <th scope="col">Qualification</th>
-                        <th scope="col">Catagory</th>
-                        <th scope="col">Service</th>
+                        <th scope="col" >Name</th>
+                        <th scope="col" >Cnic</th>
+                        <th scope="col" >Gender</th>
+                        <th scope="col" >Maritial Status</th>
+                        <th scope="col" >Contact No</th>
+                        <th scope="col" >Qualification</th>
+                        <th scope="col" >Category</th>
+                        <th scope="col" >Service</th>
                       </tr>
                     </thead>
                     <tbody>
@@ -301,20 +334,20 @@ export default function Dashboard() {
                               </a>
                             </td>
                             <td>{item?.cnic}</td>
-                            <td>
+                            <td >
                               <img
                                 alt="..."
-                                src="https://preview.webpixels.io/web/img/other/logos/logo-1.png"
+                                src="https://cdn-icons-png.flaticon.com/512/172/172163.png?w=740&t=st=1684671880~exp=1684672480~hmac=bba16cd745777bba2f3d7ba6367b9f09db4256b8603541cf0526304774b1ebf9"
                                 class="avatar avatar-xs rounded-circle me-2"
                               />
-                              <a class="text-heading font-semibold" href="#">
-                                {item?.service}
+                              <a class="text-heading font-semibold" href="#" >
+                                {item?.gender}
                               </a>
                             </td>
                             <td>{item?.maritialStatus}</td>
                             <td>{item?.contact}</td>
                             <td class="">{item?.qualification}</td>
-                            <td class="">{item?.heading}</td>
+                            <td class="" style={{color:"blue"}}>{item?.heading}</td>
                             <td class="">{item?.service}</td>
                           </tr>
                         );
@@ -323,8 +356,8 @@ export default function Dashboard() {
                   </table>
                 </div>
                 <div class="card-footer border-0 py-5">
-                  <span class="text-muted text-sm">
-                    Total User Register are {data?.length}
+                  <span class="text-muted text-sm" style={{fontWeight:"bold", fontSize:"14px"}}>
+                    Total Workers Registered are <span style={{color:"red" , fontWeight:"bold" , fontSize:"16px"}}>{data?.length}</span>
                   </span>
                 </div>
               </div>
@@ -438,7 +471,7 @@ export default function Dashboard() {
                         <th scope="col">Mail</th>
 
                         <th scope="col">Contact No</th>
-                        <th scope="col">Catagory</th>
+                        <th scope="col">Category</th>
                       </tr>
                     </thead>
                     <tbody>
@@ -458,13 +491,13 @@ export default function Dashboard() {
                               </td>
                               <td>{item?.cnic ? item.cnic : "not given"}</td>
                               <td>
-                                <a class="text-heading font-semibold" href="#">
+                                <a class="text-heading font-semibold" href="#" >
                                   {item?.Email}
                                 </a>
                               </td>
 
                               <td>{item?.PhoneNo}</td>
-                              <td class="">
+                              <td class="" style={{fontWeight:"bold", color:"blue", justifyContent:"center"}}>
                                 {item?.isWorker ? "Worker" : "User"}
                               </td>
                             </tr>
@@ -488,7 +521,7 @@ export default function Dashboard() {
               </div>
               <div class="card shadow border-0 mb-7">
                 <div class="card-header">
-                  <h5 class="mb-0">Detail Approve</h5>
+                  <h5 class="mb-0"> DETAILS </h5>
                 </div>
                 <div class="table-responsive">
                   <table class="table table-hover table-nowrap">
@@ -520,14 +553,14 @@ export default function Dashboard() {
                               </a>
                             </td>
                             <td>{item?.cnic ? item.cnic : "not given"}</td>
-                            <td>
-                              <a class="text-heading font-semibold" href="#">
+                            <td > 
+                              <a class="text-heading font-semibold" href="#" >
                                 {item?.userEmail}
                               </a>
                             </td>
 
                             <td>{item?.userPhone}</td>
-                            <td class="">
+                            <td class="" style={{color:"red" , fontWeight:"bold"}}>
                               {item?.isApproved ? "Approved" : "Not Approved"}
                             </td>
                           </tr>
@@ -551,7 +584,7 @@ export default function Dashboard() {
               </div>
               <div class="card shadow border-0 mb-7">
                 <div class="card-header">
-                  <h5 class="mb-0">Detail Approve</h5>
+                  <h5 class="mb-0">DETAILS</h5>
                 </div>
                 <div class="table-responsive">
                   <table class="table table-hover table-nowrap">
@@ -559,7 +592,7 @@ export default function Dashboard() {
                       <tr>
                         <th scope="col">Name</th>
                         <th scope="col">Cnic</th>
-                        <th scope="col">Mail</th>
+                        <th scope="col" >Mail</th>
 
                         <th scope="col">Contact No</th>
                         <th scope="col">Status</th>
@@ -590,7 +623,7 @@ export default function Dashboard() {
                             </td>
 
                             <td>{item?.userPhone}</td>
-                            <td class="">
+                            <td class="" style={{color:"blue", fontWeight:"bold"}}>
                               {item?.isApproved ? "Approved" : "Not Approved"}
                             </td>
                           </tr>

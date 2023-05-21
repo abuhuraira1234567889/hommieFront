@@ -172,10 +172,11 @@ export default function EditPost() {
   return (
     <>
       <Navbar />
+      <main class="py-2 bg-surface-secondary">
       {state?.map((item, index) => {
         if (item.userId === id)
           return (
-            <div style={{position:"relative"}} key={index} className="mx-5 my-5">
+            <div style={{position:"relative"}} key={index} className="mx-3 my-3">
               {loader && (
                 <div style={{ position: "absolute", top: "50%", left: "50%" }}>
                   <BounceLoader size={100} color="#36d7b7" />
@@ -185,13 +186,13 @@ export default function EditPost() {
                 className="text-center"
                 fontWeight="600"
                 color="#0e1b4d"
-                style={{ paddingTop: "12px", fontSize: "42px" }}
+                style={{ paddingTop: "0px", fontSize: "42px" }}
                 data-aos="fade-right"
               >
                 Update Profile
               </H2>
 
-              <P style={{ textAlign: "center" }}>
+              <P style={{ textAlign: "center", marginTop:"12px" }}>
                 Please enter your details carefully as this information will be
                 used to hire you as a worker.
               </P>
@@ -684,7 +685,7 @@ export default function EditPost() {
       })}
 
       {/* </Container> */}
-
+      </main>
       <Footer />
     </>
   );

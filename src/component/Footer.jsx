@@ -30,7 +30,7 @@ export default function Footer() {
             </MDBCol> */}
 
             <MDBCol md='6' lg='3' xl='2' className='mx-auto mb-md-0 mb-4'>
-              <h6 className='text-uppercase fw-bold mb-4'>SERVICES</h6>
+              <h6 className='text-uppercase fw-bold mb-4' style={{color: "white"}}>SERVICES</h6>
               <p>
                 <a href='#!' className='text-reset'>
                   Maid
@@ -54,7 +54,7 @@ export default function Footer() {
             </MDBCol>
 
             <MDBCol md='6' lg='3' xl='2' className='mx-auto mb-md-0 mb-4'>
-              <h6 className='text-uppercase fw-bold mb-4'>Useful links</h6>
+              <h6 className='text-uppercase fw-bold mb-4' style={{color: "white"}}>Useful links</h6>
               <p>
                 <a href='/sign-up' className='text-reset'>
                   Register
@@ -78,7 +78,7 @@ export default function Footer() {
             </MDBCol>
 
             <MDBCol md='6' lg='3' xl='3' className='mx-auto mb-md-0 mb-4'>
-              <h6 className='text-uppercase fw-bold mb-4'>Contact</h6>
+              <h6 className='text-uppercase fw-bold mb-4'style={{color: "white"}}>Contact</h6>
               <p>
                 <MDBIcon icon='home' className='me-2' />
                 Pakistan, Wah Cantt
