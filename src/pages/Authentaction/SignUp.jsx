@@ -52,7 +52,7 @@ export default function SignUp() {
           setLoader(false);
         }
       } else {
-        console.log("passord not match");
+        console.log("password not match");
         setError("Your confirm password Does not match");
       }
     }
