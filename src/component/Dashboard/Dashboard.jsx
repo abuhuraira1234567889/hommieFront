@@ -286,7 +286,7 @@ export default function Dashboard() {
                             Security Guard
                           </span>
                           <span class="h3 font-bold mb-0">
-                            {count?.SecruityGuard ? count?.SecruityGuard : "0"}
+                            {count?.SecurityGuard ? count?.SecurityGuard : "0"}
                           </span>
                         </div>
                         <div class="col-auto">

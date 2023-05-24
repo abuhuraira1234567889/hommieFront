@@ -116,7 +116,7 @@ export default function Requests() {
             Total Requests For approval
           </H2>
           <Row>
-            {!state.length > 0 ? (
+            {!state?.length > 0 ? (
               <>
                 <Spacer height="100" />
 
@@ -126,7 +126,7 @@ export default function Requests() {
                 <Spacer height="100" />
               </>
             ) : (
-              state.map((item, index) => {
+              state?.map((item, index) => {
                 if (id === item.clientId && item.isApproved === false) {
                   return (
                     <Col
