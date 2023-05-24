@@ -100,24 +100,6 @@ export default function Services() {
     if (isWorker === "true") {
       setOpen(true);
       setFormHead(name);
-      // try {
-      //   const res = await client.get(`checkClient/${id}`);
-      //   console.log(res);
-      //   if (res.status === 200) {
-      //     setExistanceModal(true);
-      //     setLoader(false);
-      //   } else if (res.status === 201) {
-      //     setFormHead(name);
-      //     setLoader(false);
-      //     setOpen(true);
-      //   }
-      //   // setFormHead(name);
-      //   // setLoader(false);
-      // } catch (error) {
-      //   console.log(error);
-      // }
-
-      // setOpen(true);
     } else {
       console.log(name);
       dispatch(setCatagory(name));
@@ -169,7 +151,9 @@ export default function Services() {
         });
         console.log(res.data.response);
         if (res.status === 200) {
-          setError("Congratulation On board ... You are successfully registered");
+          setError(
+            "Congratulation On board ... You are successfully registered"
+          );
 
           setOpen(false);
         }
@@ -456,33 +440,116 @@ export default function Services() {
           <Row style={{ marginBottom: "10px" }}>
             <Col style={{ marginBottom: "30px" }} md={5}>
               <P style={{ marginBottom: "0px", fontWeight: "bold" }}>
-                Select Your Service
+                {formHead === "Home Tutor" ? "Subject" : "Select Your Service"}
               </P>
-              <select
-                name="service"
-                onChange={(e) => {
-                  setFullName({ ...fullName, [e.target.name]: e.target.value });
-                }}
-                style={{
-                  width: "100%",
-                  height: "40px",
-                  border: "1px solid grey",
-                  marginTop: "9px",
-                  borderRadius: "5px",
-                  paddingLeft: "8px",
-                }}
-              >
-                <option value="" disabled="" selected="">
-                  Service Type
-                </option>
-                <option value="Kitchen">Kitchen Service</option>
-                <option value="Cleaning">Cleaning Service</option>
-                <option value="Laundary">Laundary Service</option>
-                <option value="Babysitting">Baby-Sitting</option>
-                <option value="Housechore">House Chore</option>
-                <option value="Cook">Chef/Cook</option>
-                <option value="Other">Other</option>
-              </select>
+              {formHead === "Security Guard" ? (
+                <select
+                  name="service"
+                  onChange={(e) => {
+                    setFullName({
+                      ...fullName,
+                      [e.target.name]: e.target.value,
+                    });
+                  }}
+                  style={{
+                    width: "100%",
+                    height: "40px",
+                    border: "1px solid grey",
+                    marginTop: "9px",
+                    borderRadius: "5px",
+                    paddingLeft: "8px",
+                  }}
+                >
+                  <option value="" disabled="" selected="">
+                    Service Type
+                  </option>
+                  <option value="Office">For Office </option>
+                  <option value="School">For School</option>
+                  <option value="Home">For Home</option>
+                  <option value="hospital">For hospital</option>
+                  <option value="University">For University</option>
+                </select>
+              ) : formHead === "Home Tutor" ? (
+                <select
+                  name="service"
+                  onChange={(e) => {
+                    setFullName({
+                      ...fullName,
+                      [e.target.name]: e.target.value,
+                    });
+                  }}
+                  style={{
+                    width: "100%",
+                    height: "40px",
+                    border: "1px solid grey",
+                    marginTop: "9px",
+                    borderRadius: "5px",
+                    paddingLeft: "8px",
+                  }}
+                >
+                  <option value="" disabled="" selected="">
+                    Subject
+                  </option>
+                  <option value="Math">Math</option>
+                  <option value="English">English</option>
+                  <option value="Physics">Physics</option>
+                  <option value="Biology">Biology</option>
+                </select>
+              ) : formHead === "Electrician" ? (
+                <select
+                  name="service"
+                  onChange={(e) => {
+                    setFullName({
+                      ...fullName,
+                      [e.target.name]: e.target.value,
+                    });
+                  }}
+                  style={{
+                    width: "100%",
+                    height: "40px",
+                    border: "1px solid grey",
+                    marginTop: "9px",
+                    borderRadius: "5px",
+                    paddingLeft: "8px",
+                  }}
+                >
+                  <option value="" disabled="" selected="">
+                    Service Type
+                  </option>
+                  <option value="Generator Install">Generator Install</option>
+                  <option value="Ups Install">Ups Install</option>
+                  <option value="Electrical wiring">Electrical wiring</option>
+                </select>
+              ) : (
+                <select
+                  name="service"
+                  onChange={(e) => {
+                    setFullName({
+                      ...fullName,
+                      [e.target.name]: e.target.value,
+                    });
+                  }}
+                  style={{
+                    width: "100%",
+                    height: "40px",
+                    border: "1px solid grey",
+                    marginTop: "9px",
+                    borderRadius: "5px",
+                    paddingLeft: "8px",
+                  }}
+                >
+                  <option value="" disabled="" selected="">
+                    Service Type
+                  </option>
+                  <option value="Kitchen">Kitchen Service</option>
+                  <option value="Cleaning">Cleaning Service</option>
+                  <option value="Laundary">Laundary Service</option>
+                  <option value="Babysitting">Baby-Sitting</option>
+                  <option value="Housechore">House Chore</option>
+                  <option value="Cook">Chef/Cook</option>
+                  <option value="Other">Other</option>
+                </select>
+              )}
               <P color="red">
                 {blank
                   ? fullName.service === "" && "***Its should not empty"
@@ -519,7 +586,7 @@ export default function Services() {
                 onChange={(e) => {
                   setFullName({ ...fullName, [e.target.name]: e.target.value });
                 }}
-                placeholder="E.g. Cooking/Cleaning"
+                placeholder="Enter your Skill"
                 borderRadius="5px"
                 height="40px"
               />

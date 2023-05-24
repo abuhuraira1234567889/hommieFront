@@ -33,16 +33,16 @@ export default function Sign() {
       });
       try {
         if (res.status === 200) {
-          console.log(res.data.data);
+          // console.log(res.data.data);
 
-          localStorage.setItem("id", res.data.data._id);
-          localStorage.setItem("email", res.data.data.Email);
-          localStorage.setItem("isWorker", res.data.data.isWorker);
-          localStorage.setItem("isAdmin", res.data.data.isAdmin);
+          localStorage.setItem("id", res?.data?.data?._id);
+          localStorage.setItem("email", res?.data?.data?.Email);
+          localStorage.setItem("isWorker", res?.data?.data?.isWorker);
+          localStorage.setItem("isAdmin", res?.data?.data?.isAdmin);
           if(res.data.data.isAdmin===true){
             navigate("/dashboard")
           }
-          else if (res.data.data.isUpdated === true) {
+          else if (res?.data?.data?.isUpdated === true) {
             setLoader(false);
             navigate("/services");
           }
@@ -55,7 +55,7 @@ export default function Sign() {
       }
     } catch (error) {
       console.log(error);
-      setError(error.response.data.message);
+      setError(error?.response?.data?.message);
       setLoader(false);
     }
   }
