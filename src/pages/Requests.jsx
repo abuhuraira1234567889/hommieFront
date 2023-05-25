@@ -98,8 +98,8 @@ export default function Requests() {
         />
       </div>
 
-      <Spacer height="40" />
-      <Spacer height="40" />
+      <Spacer height="20" />
+      <Spacer height="20" />
       <div>
         <Container style={{ position: "relative" }}>
           {loader && (
@@ -206,18 +206,18 @@ export default function Requests() {
                             style={{ textAlign: "center", marginTop: "20px" }}
                             md={12}
                           >
-                            <span>
-                              He Wants to work with you. Please Approve the
-                              Request for work. You Can also Delete the Request
+                            <span style={{marginLeft:"1px" , marginRight:"1px"}}>
+                              He Wants To Hire You. Please Approve the
+                              &nbsp;Request for work. You Can also Delete Request
                               {/* {item.status==="none"?"03*********":item.status==="pending"?"03******":item.contact} */}
                             </span>
                           </Col>
                         </Row>
 
                         <hr />
-                        <Spacer height="6" />
+                        <Spacer height="0" />
 
-                        <Spacer height="10" />
+                        <Spacer height="0" />
                         <div className="d-flex">
                           <Button
                             onClick={() => {

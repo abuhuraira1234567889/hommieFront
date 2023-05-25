@@ -40,16 +40,18 @@ export default function DetailRequestSent() {
                   </H2>
                 </div>
           
-          <table class="table">
+          <table class="table table table-hover table-nowrap">
             <thead class="thead-light">
               <tr>
                 <th scope="col" className="serial">#</th>
 
-                <th scope="col">Name</th>
-                <th scope="col">Email</th>
-                <th scope="col">Gender</th>
-                <th scope="col">Status</th>
-                <th scope="col">Image</th>
+                <th scope="col" style={{fontSize:"17px"}}>Name</th>
+                <th scope="col"style={{fontSize:"17px"}}>Email</th>
+                <th scope="col"style={{fontSize:"17px"}}>Gender</th>
+                <th scope="col" style={{fontSize:"17px"}}>Category</th>
+                <th scope="col"style={{fontSize:"17px"}}>Service</th>
+                <th scope="col"style={{fontSize:"17px"}}>Status</th>
+                <th scope="col"style={{fontSize:"17px"}}>Image</th>
                 {/* <th scope="col">Action</th> */}
               </tr>
             </thead>
@@ -62,7 +64,9 @@ export default function DetailRequestSent() {
 
                         <td>{item.name ? item.name : "not given"}</td>
                         <td >{item.cnic}</td>
-                        <td style={{color:"blue"}}>{item.gender ? item.gender : "not given"}</td>
+                        <td>{item.gender ? item.gender : "not given"}</td>
+                        <td class="" style={{color:"blue"}}>{item?.heading}</td>
+                        <td class="" style={{color:"green"}}>{item?.service}</td>
                         <td style={{color:"red"}}>
                           {item.postApproved ? "Approved" : "Not Approved"}
                         </td>

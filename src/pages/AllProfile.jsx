@@ -242,7 +242,7 @@ export default function AllProfile() {
                 </Col>
                 <Col md={9}>
                   <p style={{ color: "black" }} class="text-muted mb-0">
-                    (098) ********
+                    (+92) ********
                   </p>
                 </Col>
               </Row>
@@ -255,7 +255,7 @@ export default function AllProfile() {
                 </Col>
                 <Col md={9}>
                   <p style={{ color: "black" }} class="text-muted mb-0">
-                    (098) ********
+                    (+92) ********
                   </p>
                 </Col>
               </Row>

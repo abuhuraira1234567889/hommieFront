@@ -127,7 +127,7 @@ export default function Services() {
       setBlank(true);
     } else {
       setErrorPopUp(true);
-      setError("Plese Wait We Adding Your Request");
+      setError("Plese Wait We Are Adding Your Request");
       try {
         const res = await client.post("addClient", {
           userId: id,
@@ -172,10 +172,14 @@ export default function Services() {
       >
         <H2 style={{ fontSize: "40px" }} className="text-center">
           {" "}
-          Successfull
+          Successful
         </H2>
         <P className="text-center">{error}</P>
-        <Button style={{ width: "100%", fontSize: "20px" }}>OK</Button>
+        <Button style={{ width: "100%", fontSize: "20px" }}
+             onClick={() => {
+              navigate("/Services");
+            }}
+             >OK</Button>
       </ModalView>
       {!existance && (
         <ModalView show={open} setshow={setOpen}>
