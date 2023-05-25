@@ -36,7 +36,7 @@ const CardImages = styled.div`
 `;
 const ProfileImage = styled.div`
   position: absolute;
-  bottom: -25%;
+  bottom: -20%;
   left: 36%;
 `;
 const BottomCard = styled.div`
@@ -520,7 +520,7 @@ export default function PostApplied() {
 
                           <hr />
                           <Spacer height="6" />
-                          <BottomCard>
+                          {/* <BottomCard>
                             <Row>
                               <Col md={6}>
                                 <P
@@ -564,7 +564,7 @@ export default function PostApplied() {
                                 </P>
                               </Col>
                             </Row>
-                          </BottomCard>
+                          </BottomCard> */}
                           <Spacer height="10" />
                           <div className="d-flex">
                             <Button
@@ -578,6 +578,20 @@ export default function PostApplied() {
                               }}
                             >
                               View Profile
+                            </Button>
+                            <Button
+                            
+                              onClick={() => {
+                                // setItems(item);
+                                // setopen(true);
+                              }}
+                              style={{
+                                width: "100%",
+                                borderRadius: "0 0px 10px 10px",
+                                marginLeft: "10px",
+                              }}
+                            >
+                              Edit Profile
                             </Button>
                           </div>
                         </Card>

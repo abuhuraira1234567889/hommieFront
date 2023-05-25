@@ -36,7 +36,7 @@ const CardImages = styled.div`
 `;
 const ProfileImage = styled.div`
   position: absolute;
-  bottom: -25%;
+  bottom: -20%;
   left: 36%;
 `;
 const BottomCard = styled.div`
@@ -110,7 +110,8 @@ export default function AllProfile() {
   const [filterValue, setFilterValue] = useState("");
   const [items, setItems] = useState();
   const [loader, setLoader] = useState(false);
-  const state = useSelector((state) => state.getClient.getClientData);
+  const [datas,setDatas]=useState()
+  let state = useSelector((state) => state.getClient.getClientData);
   const state2 = useSelector((state) => state.user.catagory);
   
   // console.log(state, "this is state");
@@ -125,30 +126,34 @@ export default function AllProfile() {
     ],
     ["Behavior with family is not good", "Always Distracted", "Unreliable"],
   ];
-  console.log(reportdata.length, "i am array data");
+  // console.log(reportdata.length, "i am array data");
   const ratingChanged = (newRating) => {
-    console.log(newRating);
+    // console.log(newRating);
   };
 
   async function Search() {
-    state.filter((item) =>
+    const datass= datas.filter((item) =>
       item.city.toLowerCase().includes(filterValue.toLowerCase())
     );
+    // console.log("this is search",datass);
+
+    setDatas(datass);
   }
+
   async function requestHandler(id, userId) {
     try {
       setLoader(true);
-      console.log("this is client id", userId, id);
+      // console.log("this is client id", userId, id);
       const res = await client.post("addRequest", {
         postId: id,
         clientId: userId,
         userId: idlog,
       });
-      console.log(res.data);
+      // console.log(res.data);
       setLoader(false);
       alert("Request Sent wait for approval");
     } catch (err) {
-      console.log(err);
+      // console.log(err);
       setLoader(false);
       alert(err.response.data.success);
     }
@@ -159,7 +164,11 @@ export default function AllProfile() {
   }, []);
 
   useEffect(() => {
-    dispatch(getClient());
+    dispatch(getClient()).then((res) => {
+      // console.log(res.payload);
+      setDatas(res.payload);
+     
+    });
   }, []);
 
   return (
@@ -407,11 +416,12 @@ export default function AllProfile() {
             })
           : setReportArr(0)}
         <Button
-          // onClick={() => {
-          //   setReportArr(reportArr + 1),
-          //     reportdata.length - 1 === reportArr ? setReport(false) : "",
-          //     reportdata.length - 1 === reportArr ? setReport(0) : "";
-          // }}
+          onClick={() => {
+            // eslint-disable-next-line no-unused-expressions
+            setReportArr(reportArr + 1),
+              reportdata.length - 1 === reportArr ? setReport(false) : "",
+              reportdata.length - 1 === reportArr ? setReport(0) : "";
+          }}
           style={{ float: "right" }}
         >
           {reportdata.length - 1 === reportArr ? "Submit" : "Next"}
@@ -509,9 +519,10 @@ export default function AllProfile() {
           <Container>
             <br />
             <Row>
-              {state.length > 0 ? (
+              {state?.length > 0 ? (
                 state?.map((item, index) => {
                   if (state2 == item.heading) {
+                    if(item.city.toLowerCase().includes(filterValue.toLowerCase())){
                     return (
                       <Col data-aos="fade-up" key={index} md={4}>
                         <Card style={{ padding: "0px", marginTop: "2px", height: "100%"}}>
@@ -664,6 +675,7 @@ export default function AllProfile() {
                         </Card>
                       </Col>
                     );
+                  }
                   } else {
                     <h1>Ther is no Data To Show</h1>;
                   }
