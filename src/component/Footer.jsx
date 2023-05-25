@@ -85,7 +85,7 @@ export default function Footer() {
               </p>
               <p>
                 <MDBIcon icon='envelope' className='me-3' />
-                abc@gmail.com
+                hommieservices@gmail.com
               </p>
               <p>
                 <MDBIcon icon='phone' className='me-3' /> + 92 331 7634529

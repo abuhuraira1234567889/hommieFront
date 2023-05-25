@@ -179,10 +179,16 @@ export default function SignUp() {
                       />
                       As a Client
                     </div>
+                    <P style={{
+                        textAlign: "right",
+                        color: "black",
+                        textDecoration: "none",
+                        cursor: "pointer",
+                      }} > If you are a worker don't select checkbox</P>
                     <P
                       style={{
                         textAlign: "right",
-                        color: "blue",
+                        color: "black",
                         textDecoration: "none",
                         cursor: "pointer",
                       }}
@@ -190,7 +196,7 @@ export default function SignUp() {
                       Already have an account?  <Link to="/sign-in" style={{fontWeight:"bold", color: "blue"}}>Sign In</Link>
                       {/* <strong>Sign In</strong> */}
                     </P>
-                      <br />
+                    
 
                     <Button
                       onClick={() => {
@@ -201,7 +207,7 @@ export default function SignUp() {
                         borderRadius: "20px",
                         background: "#00d05e",
                         color: "white",
-                        marginBottom: "35px",
+                        marginBottom: "42px",
                         paddingBottom: "50px"
                       }}
                     >
