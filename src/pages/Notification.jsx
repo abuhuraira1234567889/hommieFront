@@ -209,7 +209,7 @@ export default function Notification() {
                 </Col>
                 <Col md={9}>
                   <p style={{ color: "black" }} class="text-muted mb-0">
-                    {items?.postApproved ? items?.contact : "(098) ********"}
+                    {items?.postApproved ? items?.contact : "(+92) ********"}
                   </p>
                 </Col>
               </Row>
@@ -222,7 +222,7 @@ export default function Notification() {
                 </Col>
                 <Col md={9}>
                   <p style={{ color: "black" }} class="text-muted mb-0">
-                    {items?.postApproved ? items?.contact : "(098) ********"}
+                    {items?.postApproved ? items?.contact : "(+92) ********"}
                   </p>
                 </Col>
               </Row>

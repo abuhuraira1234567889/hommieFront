@@ -469,7 +469,6 @@ export default function Dashboard() {
                         <th scope="col">Name</th>
                         <th scope="col">Cnic</th>
                         <th scope="col">Mail</th>
-
                         <th scope="col">Contact No</th>
                         <th scope="col">Category</th>
                       </tr>
@@ -530,7 +529,6 @@ export default function Dashboard() {
                         <th scope="col">Name</th>
                         <th scope="col">Cnic</th>
                         <th scope="col">Mail</th>
-
                         <th scope="col">Contact No</th>
                         <th scope="col">Status</th>
                       </tr>
@@ -593,7 +591,6 @@ export default function Dashboard() {
                         <th scope="col">Name</th>
                         <th scope="col">Cnic</th>
                         <th scope="col" >Mail</th>
-
                         <th scope="col">Contact No</th>
                         <th scope="col">Status</th>
                       </tr>
@@ -615,7 +612,7 @@ export default function Dashboard() {
                                 {item?.userName ? item.userName : "not given"}
                               </a>
                             </td>
-                            <td>{item?.cnic ? item.cnic : "not given"}</td>
+                            <td>{item?.cnic ? item.cnic : "Not given"}</td>
                             <td>
                               <a class="text-heading font-semibold" href="#">
                                 {item?.userEmail}

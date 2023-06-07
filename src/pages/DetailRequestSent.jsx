@@ -46,7 +46,6 @@ export default function DetailRequestSent() {
                 <th scope="col" className="serial">#</th>
 
                 <th scope="col" style={{fontSize:"17px"}}>Name</th>
-                <th scope="col"style={{fontSize:"17px"}}>Email</th>
                 <th scope="col"style={{fontSize:"17px"}}>Gender</th>
                 <th scope="col" style={{fontSize:"17px"}}>Category</th>
                 <th scope="col"style={{fontSize:"17px"}}>Service</th>
@@ -63,7 +62,6 @@ export default function DetailRequestSent() {
                         <td style={{color:"green" , fontWeight:"bold"}}>{index + 1}</td>
 
                         <td>{item.name ? item.name : "not given"}</td>
-                        <td >{item.cnic}</td>
                         <td>{item.gender ? item.gender : "not given"}</td>
                         <td class="" style={{color:"blue"}}>{item?.heading}</td>
                         <td class="" style={{color:"green"}}>{item?.service}</td>
@@ -81,6 +79,7 @@ export default function DetailRequestSent() {
                             }}
                           />
                         </td>
+                       
                       </tr>
                     );
                   })
