@@ -50,7 +50,11 @@ export default function EditPost() {
   const dispatch = useDispatch();
   const [errorPopUp, setErrorPopUp] = useState(false);
   const state = useSelector((state) => state.getClient.getClientData);
-  console.log("i am the state", state);
+  const state2=useSelector((state)=>state.user.editPost)
+  console.log(state)
+  const [itemss, setItemss] = useState();
+
+  console.log("i am the state of the users", state2.editPost)
   const [selectedFile, setSelectedFile] = useState(null);
   const [imageUrl, setImageUrl] = useState(null);
   const [loader, setLoader] = useState(false);
@@ -127,42 +131,43 @@ export default function EditPost() {
     }
   }
 
-  async function onSubmit(localId) {
+  async function onSubmit(itemId) {
     setLoader(true);
 
     
 
     try {
-      const res = await client.put(`updateClient/${id}`, {
-        name: fullName.fname ? fullName.fname : state[0].name,
-        age: fullName.age ? fullName.age : state[0].age,
-        gender: fullName.gender ? fullName.gender : state[0].gender,
+      const res = await client.put(`updateClient/${itemId}`, {
+        name: fullName.fname ? fullName.fname : itemss.name,
+        age: fullName.age ? fullName.age : itemss.age,
+        gender: fullName.gender ? fullName.gender : itemss.gender,
         contact: fullName.no
           ? parseInt(fullName.no)
-          : parseInt(state[0].contact),
+          : parseInt(itemss.contact),
 
-        religion: fullName.religion ? fullName.religion : state[0].religion,
-        city: fullName.city ? fullName.city : state[0].city,
-        adress: fullName.Address ? fullName.Address : state[0].adress,
+        religion: fullName.religion ? fullName.religion : itemss.religion,
+        city: fullName.city ? fullName.city : itemss.city,
+        adress: fullName.Address ? fullName.Address : itemss.adress,
         maritialStatus: fullName.maritialStatus
           ? fullName.maritialStatus
-          : state[0].maritialStatus,
-        timing: fullName.timing ? fullName.timing : state[0].timing,
-        service: fullName.service ? fullName.service : state[0].service,
+          : itemss.maritialStatus,
+        timing: fullName.timing ? fullName.timing : itemss.timing,
+        service: fullName.service ? fullName.service : itemss.service,
         qualification: fullName.qualification
           ? fullName.qualification
-          : state[0].qualification,
-        skills: fullName.skills ? fullName.skills : state[0].skills,
-        language: fullName.language ? fullName.language : state[0].language,
+          : itemss.qualification,
+        skills: fullName.skills ? fullName.skills : itemss.skills,
+        language: fullName.language ? fullName.language : itemss.language,
         experince: fullName.experience
           ? fullName.experience
-          : state[0].experince,
-        image: imageUrl ? imageUrl : state[0].image,
+          : itemss.experince,
+        image: imageUrl ? imageUrl : itemss.image,
       });
-      console.log(res.data.response);
+      console.log("i am the response of data",res.data.response);
       if (res.status === 200) {
-        alert("Your Profile is Updated");
+        alert("Your Post is Updated");
         setLoader(false);
+        // navigate("/profiles");
       }
     } catch (error) {
       console.log(error);
@@ -174,7 +179,8 @@ export default function EditPost() {
       <Navbar />
       <main class="py-2 bg-surface-secondary">
       {state?.map((item, index) => {
-        if (item.userId === id)
+        console.log(item._id, state2)
+        if (item._id === state2)
           return (
             <div style={{position:"relative"}} key={index} className="mx-3 my-3">
               {loader && (
@@ -218,7 +224,7 @@ export default function EditPost() {
                     Full Name
                   </P>
                   <Input
-                    value={fullName.fname ? fullName.fname : item.name}
+                    placeholder={fullName.fname ? fullName.fname : item.name}
                     name="fname"
                     onChange={(e) => {
                       setFullName({
@@ -226,7 +232,7 @@ export default function EditPost() {
                         [e.target.name]: e.target.value,
                       });
                     }}
-                    placeholder="Full name"
+                    // placeholder="Full name"
                     borderRadius="5px"
                     height="40px"
                   />
@@ -239,7 +245,7 @@ export default function EditPost() {
                 <Col md={4}>
                   <P style={{ marginBottom: "0px", fontWeight: "bold" }}>Age</P>
                   <Input
-                    value={fullName.age ? fullName.age : item.age}
+                    placeholder={fullName.age ? fullName.age : item.age}
                     name="age"
                     onChange={(e) => {
                       setFullName({
@@ -249,7 +255,7 @@ export default function EditPost() {
                     }}
                     min={0}
                     type={"number"}
-                    placeholder="E.g 23"
+                    // placeholder="E.g 23"
                     borderRadius="5px"
                     height="40px"
                   />
@@ -302,7 +308,7 @@ export default function EditPost() {
                   </P>
                   <Input
                     name="no"
-                    value={fullName.no ? fullName.no : item.contact}
+                    placeholder={fullName.no ? fullName.no : item.contact}
                     onChange={(e) => {
                       setFullName({
                         ...fullName,
@@ -310,7 +316,7 @@ export default function EditPost() {
                       });
                     }}
                     type={"number"}
-                    placeholder="E.g. +923313487297"
+                    // placeholder="E.g. +923313487297"
                     borderRadius="5px"
                     height="40px"
                   />
@@ -326,7 +332,7 @@ export default function EditPost() {
                   </P>
                   <Input
                     disabled
-                    value={fullName.cnic ? fullName.cnic : item.cnic}
+                    placeholder={fullName.cnic ? fullName.cnic : item.cnic}
                     name="cnic"
                     onChange={(e) => {
                       setFullName({
@@ -335,7 +341,7 @@ export default function EditPost() {
                       });
                     }}
                     type={"number"}
-                    placeholder="E.g. XXXXX-XXXXXXX-X"
+                    // placeholder="E.g. XXXXX-XXXXXXX-X"
                     borderRadius="5px"
                     height="40px"
                   />
@@ -350,7 +356,7 @@ export default function EditPost() {
                     Religion
                   </P>
                   <Input
-                    value={
+                    placeholder={
                       fullName.religion ? fullName.religion : item.religion
                     }
                     name="religion"
@@ -360,7 +366,7 @@ export default function EditPost() {
                         [e.target.name]: e.target.value,
                       });
                     }}
-                    placeholder="E.g. Muslim"
+                    // placeholder="E.g. Muslim"
                     borderRadius="5px"
                     height="40px"
                   />
@@ -420,7 +426,7 @@ export default function EditPost() {
                     Address
                   </P>
                   <Input
-                    value={fullName.Address ? fullName.Address : item.adress}
+                    placeholder={fullName.Address ? fullName.Address : item.adress}
                     name="Address"
                     onChange={(e) => {
                       setFullName({
@@ -428,7 +434,7 @@ export default function EditPost() {
                         [e.target.name]: e.target.value,
                       });
                     }}
-                    placeholder="E.g Officer Colony, Wah Cantt"
+                    // placeholder="E.g Officer Colony, Wah Cantt"
                     borderRadius="5px"
                     height="40px"
                   />
@@ -552,7 +558,7 @@ export default function EditPost() {
                     Qualification
                   </P>
                   <Input
-                    value={
+                    placeholder={
                       fullName.qualification
                         ? fullName.qualification
                         : item.qualification
@@ -564,7 +570,7 @@ export default function EditPost() {
                         [e.target.name]: e.target.value,
                       });
                     }}
-                    placeholder="E.g. Matric/Intermediate"
+                    // placeholder="E.g. Matric/Intermediate"
                     borderRadius="5px"
                     height="40px"
                   />
@@ -583,7 +589,7 @@ export default function EditPost() {
                     Skills
                   </P>
                   <Input
-                    value={fullName.skills ? fullName.skills : item.skills}
+                    placeholder={fullName.skills ? fullName.skills : item.skills}
                     name="skills"
                     onChange={(e) => {
                       setFullName({
@@ -591,14 +597,14 @@ export default function EditPost() {
                         [e.target.name]: e.target.value,
                       });
                     }}
-                    placeholder="E.g. Cooking/Cleaning"
+                    // placeholder="E.g. Cooking/Cleaning"
                     borderRadius="5px"
                     height="40px"
                   />
                   <P color="red">
-                    {blank
+                    {/* {blank
                       ? fullName.skills === "" && "***Its should not empty"
-                      : ""}
+                      : ""} */}
                   </P>
                 </Col>
                 <Col md={7}>
@@ -606,7 +612,7 @@ export default function EditPost() {
                     Languages
                   </P>
                   <Input
-                    value={
+                    placeholder={
                       fullName.language ? fullName.language : item.language
                     }
                     name="language"
@@ -616,14 +622,14 @@ export default function EditPost() {
                         [e.target.name]: e.target.value,
                       });
                     }}
-                    placeholder="E.g. Punjabi / Urdu"
+                    // placeholder="E.g. Punjabi / Urdu"
                     borderRadius="5px"
                     height="40px"
                   />
                   <P color="red">
-                    {blank
+                    {/* {blank
                       ? fullName.language === "" && "***Its should not empty"
-                      : ""}
+                      : ""} */}
                   </P>
                 </Col>
               </Row>
@@ -634,7 +640,7 @@ export default function EditPost() {
                     Experience (If Any){" "}
                   </P>
                   <Input
-                    value={
+                    placeholder={
                       fullName.experience ? fullName.experience : item.experince
                     }
                     name="experience"
@@ -644,7 +650,7 @@ export default function EditPost() {
                         [e.target.name]: e.target.value,
                       });
                     }}
-                    placeholder="E.g. Enter your working details"
+                    // placeholder="E.g. Enter your working details"
                     borderRadius="5px"
                     height="40px"
                   />
@@ -674,6 +680,7 @@ export default function EditPost() {
                 {error && <P color="red">**{error}</P>}
                 <Button
                   onClick={() => {
+                    setItemss(item)
                     onSubmit(item._id);
                   }}
                 >

@@ -207,21 +207,8 @@ export default function Navbar() {
                             >
                               Detail Request
                             </div>
-                          ) : (
-                            <div
-                              onClick={() => {
-                                navigate("/edit-post");
-                              }}
-                              onMouseEnter={(e) => {
-                                e.target.style.color = "red";
-                              }}
-                              onMouseLeave={(e) => {
-                                e.target.style.color = "black";
-                              }}
-                            >
-                              Edit Post
-                            </div>
-                          )}
+                          ) : null}
+                          
                           <Spacer height="20" />
                           {client === "true" ? (
                             <div

@@ -24,6 +24,8 @@ import adress from "../images/adress.svg";
 import mail from "../images/mail.svg";
 import Report from "../images/report (2).png";
 import { client } from "../services/client";
+import { setEditPost } from "../services/redux/reducer/stateReducer";
+import { useNavigate } from "react-router-dom";
 // import { getClient } from "@/services/middleWare/getClient";
 
 const Wrapper = styled.div`
@@ -113,6 +115,8 @@ export default function PostApplied() {
   const [isAdmin, setIsAdmin] = useState();
   const state = useSelector((state) => state.getClient.getClientData);
   const state2 = useSelector((state) => state.user.catagory);
+  const [postId,setPostId]=useState()
+  const navigate=useNavigate()
 
   // console.log(state, "this is state");
 
@@ -582,8 +586,9 @@ export default function PostApplied() {
                             <Button
                             
                               onClick={() => {
-                                // setItems(item);
-                                // setopen(true);
+                                setPostId(item._id);
+                                dispatch(setEditPost(item._id));
+                                navigate("/edit-post");
                               }}
                               style={{
                                 width: "100%",

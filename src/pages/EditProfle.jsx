@@ -169,7 +169,7 @@ export default function EditProfile() {
                   onChange={(e) => {
                     setPhoneNo(e.target.value);
                   }}
-                  type="text"
+                  type="number"
                   id="lname"
                   tabindex="2"
                   placeholder={
@@ -215,7 +215,7 @@ export default function EditProfile() {
                   onChange={(e) => {
                     setCnic(e.target.value);
                   }}
-                  type="text"
+                  type="number"
                   id="lname"
                   tabindex="2"
                   placeholder={state?.cnic ? state?.cnic : "Enter Cnic"}

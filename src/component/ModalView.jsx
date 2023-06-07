@@ -42,7 +42,7 @@ export default function ModalView({
       >
         <Box
           sx={style2}
-          className='ps-4 pe-4 pb-4 pt-3'
+          className='ps-4 pe-4 pb-1 pt-3'
           style={{
             height: `${height ? height : '95vh'}`,
             width: `${width ? width : '65vw'}`,
@@ -56,7 +56,7 @@ export default function ModalView({
             }}
           >
             <CloseIcon
-              className='mb-1'
+              className='mb-0'
               style={{ cursor: 'pointer', color: 'black' }}
               onClick={() => {
                 setshow(false);

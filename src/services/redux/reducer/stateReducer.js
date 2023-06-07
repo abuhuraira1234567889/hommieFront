@@ -4,6 +4,7 @@ const initialState = {
   userid: "",
   catagory:"All",
   search:"",
+  editPost:""
 };
 export function setNavBar(value) {
   return value;
@@ -21,17 +22,21 @@ const userSlice = createSlice({
     setSearch: (state, action) => {
       state.search = action.payload;
     },
+    setEditPost: (state, action) => {
+      state.editPost = action.payload;
+    },
   },
 });
 export const {
   setState,
   setCatagory,
-  setSign,
+
   setSearch,
-  setToken,
-  setSummary,
-  setHandler,
-  setTwiterData,
-  setSideBar,
+ 
+ 
+
+
+
+  setEditPost,
 } = userSlice.actions;
 export default userSlice.reducer;
