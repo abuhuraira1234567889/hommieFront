@@ -615,9 +615,9 @@ export default function Services() {
                         Service Type
                       </option>
                       <option value="Kitchen">Kitchen Service</option>
-                      <option value="Cleaning">Resturant Services</option>
-                      <option value="Laundary">Cooking Food</option>
-                      <option value="Babysitting">Food For Home</option>
+                      <option value="Resturant">Resturant Services</option>
+                      <option value="Cooking">Cooking Food</option>
+                      <option value="Food">Food For Home</option>
                       
                     </select>
 
@@ -1077,7 +1077,7 @@ export default function Services() {
                 style={{ height: "400px" }}
                 onClick={() => {
                   if (id) {
-                    NextSection("Cook/Chief");
+                    NextSection("Cook");
                   }
                 }}
                 
