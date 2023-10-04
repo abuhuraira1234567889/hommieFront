@@ -12,7 +12,7 @@ import { useNavigate } from "react-router-dom";
 import { BounceLoader } from "react-spinners";
 import { client } from "../../services/client";
 import { Link } from "react-router-dom";
-
+import eyeIcon from "../../images/eye off.svg";
 import axios from "axios";
 
 export default function Sign() {
@@ -22,7 +22,9 @@ export default function Sign() {
   const [error, setError] = useState("");
   const navigate = useNavigate();
   const [loader, setLoader] = useState(false);
+  const [showPassword, setShowPassword] = useState(false);
 
+  
   async function onSubmit() {
     setLoader(true);
     setError("");
@@ -146,13 +148,34 @@ export default function Sign() {
                       type={"email"}
                       placeholder="Enter Your Email"
                     />
-                    <Input
-                      onChange={(e) => {
-                        setPassword(e.target.value);
+                    <div
+                      style={{
+                        position: "relative",
+                        width: "100%",
                       }}
-                      type={"password"}
-                      placeholder="Enter Your Password"
-                    />
+                    >
+                      <Input
+                        onChange={(e) => {
+                          setPassword(e.target.value);
+                        }}
+                        type={showPassword ? "text" : "password"}
+                        placeholder="Enter Your Password"
+                      />
+                      <img
+                        src={eyeIcon}
+                        alt="Toggle Password Visibility"
+                        onClick={() => setShowPassword(!showPassword)}
+                        style={{
+                          position: "absolute",
+                          right: "10px",
+                          top: "50%",
+                          transform: "translateY(-50%)",
+                          cursor: "pointer",
+                          width: "20px",
+                          height: "20px",
+                        }}
+                      />
+                    </div>
                     {error && <p style={{ color: "red" }}>***{error}</p>}
                     <P
                       style={{

@@ -276,7 +276,7 @@ export default function Dashboard() {
                     </div>
                   </div>
                 </div>
-                <div class="col-xl-3 mt-2 col-sm-6 col-12">
+                <div class="col-xl-3  col-sm-6 col-12">
                   <div class="card shadow border-0">
                     <div class="card-body">
                       <div class="row">
@@ -616,7 +616,7 @@ export default function Dashboard() {
                     <thead class="thead-light">
                       <tr>
                         <th scope="col">Name</th>
-                        <th scope="col">Cnic</th>
+                        {/* <th scope="col">Cnic</th> */}
                         <th scope="col">Mail</th>
                         <th scope="col">Contact No</th>
                         <th scope="col">Status</th>
@@ -641,7 +641,7 @@ export default function Dashboard() {
                                   {item?.userName ? item.userName : "not given"}
                                 </a>
                               </td>
-                              <td>{item?.cnic ? item.cnic : "not given"}</td>
+                              {/* <td>{item?.cnic ? item.cnic : "not given"}</td> */}
                               <td>
                                 <a class="text-heading font-semibold" href="#">
                                   {item?.userEmail}
@@ -682,7 +682,7 @@ export default function Dashboard() {
                     <thead class="thead-light">
                       <tr>
                         <th scope="col">Name</th>
-                        <th scope="col">Cnic</th>
+                        {/* <th scope="col">Gender</th> */}
                         <th scope="col">Mail</th>
                         <th scope="col">Contact No</th>
                         <th scope="col">Status</th>
@@ -707,7 +707,17 @@ export default function Dashboard() {
                                   {item?.userName ? item.userName : "not given"}
                                 </a>
                               </td>
-                              <td>{item?.cnic ? item.cnic : "Not given"}</td>
+                              {/* <td>
+                              <img
+                                alt="..."
+                                src="https://cdn-icons-png.flaticon.com/512/172/172163.png?w=740&t=st=1684671880~exp=1684672480~hmac=bba16cd745777bba2f3d7ba6367b9f09db4256b8603541cf0526304774b1ebf9"
+                                class="avatar avatar-xs rounded-circle me-2"
+                              />
+                              <a class="text-heading font-semibold" href="#">
+                                {item?.gender}
+                              </a>
+                            </td> */}
+                              {/* <td>{item?.cnic ? item.cnic : "not given"}</td> */}
                               <td>
                                 <a class="text-heading font-semibold" href="#">
                                   {item?.userEmail}

@@ -208,8 +208,9 @@ export default function Services() {
           data-aos='fade-up'
         > */}
           <P className="text-center">
-            Please enter your {servicesTab?"Personal details":"Experience Detail"} carefully as this information
-            will be used to hire you as a worker.
+            Please enter your{" "}
+            {servicesTab ? "Personal details" : "Experience Detail"} carefully
+            as this information will be used to hire you as a worker.
           </P>
           {servicesTab && (
             <>
@@ -220,10 +221,20 @@ export default function Services() {
                   </P>
                   <Input
                     name="fname"
+                    value={fullName.fname}
                     onChange={(e) => {
+                      // Remove any non-alphabetic characters from the input using a regular expression
+                      const alphabeticInput = e.target.value.replace(
+                        /[^A-Za-z]/g,
+                        ""
+                      );
+
+                      // Limit the input to 273 characters
+                      const limitedInput = alphabeticInput.slice(0, 273);
+
                       setFullName({
                         ...fullName,
-                        [e.target.name]: e.target.value,
+                        fname: limitedInput,
                       });
                     }}
                     placeholder="Full name"
@@ -232,10 +243,11 @@ export default function Services() {
                   />
                   <P color="red">
                     {blank
-                      ? fullName.fname === "" && "***Its should not empty"
+                      ? fullName.fname === "" && "***It should not be empty"
                       : ""}
                   </P>
                 </Col>
+
                 <Col md={6}>
                   <P style={{ marginBottom: "0px", fontWeight: "bold" }}>Age</P>
                   <Input
@@ -300,43 +312,58 @@ export default function Services() {
                   </P>
                   <Input
                     name="no"
+                    value={fullName.no}
                     onChange={(e) => {
-                      setFullName({
-                        ...fullName,
-                        [e.target.name]: e.target.value,
-                      });
+                      // Remove non-numeric characters from the input
+                      const numericInput = e.target.value.replace(
+                        /[^0-9]/g,
+                        ""
+                      );
+
+                      // Limit the input to 11 characters
+                      if (numericInput.length <= 11) {
+                        setFullName({
+                          ...fullName,
+                          no: numericInput,
+                        });
+                      }
                     }}
-                    type={"number"}
+                    type="tel"
                     placeholder="E.g. 03313487297"
                     borderRadius="5px"
                     height="40px"
                   />
                   <P color="red">
                     {blank
-                      ? fullName.no === "" && "***Its should not empty"
+                      ? fullName.no === "" && "***It should not be empty"
                       : ""}
                   </P>
                 </Col>
+
                 <Col md={4}>
                   <P style={{ marginBottom: "0px", fontWeight: "bold" }}>
                     CNIC
                   </P>
                   <Input
                     name="cnic"
+                    value={fullName.cnic}
                     onChange={(e) => {
-                      setFullName({
-                        ...fullName,
-                        [e.target.name]: e.target.value,
-                      });
+                      const input = e.target.value.replace(/\D/g, ""); // Remove non-numeric characters
+                      if (input.length <= 13) {
+                        setFullName({
+                          ...fullName,
+                          cnic: input,
+                        });
+                      }
                     }}
-                    type={"number"}
+                    type="text"
                     placeholder="E.g. XXXXXXXXXXXXX"
                     borderRadius="5px"
                     height="40px"
                   />
                   <P color="red">
                     {blank
-                      ? fullName.cnic === "" && "***Its should not empty"
+                      ? fullName.cnic === "" && "***It should not be empty"
                       : ""}
                   </P>
                 </Col>
@@ -346,10 +373,14 @@ export default function Services() {
                   </P>
                   <Input
                     name="religion"
+                    value={fullName.religion}
                     onChange={(e) => {
+                      const input = e.target.value.replace(/[^A-Za-z]/g, ""); // Remove non-alphabetic characters
+                      const limitedInput = input.slice(0, 50); // Limit the input to 50 characters
+
                       setFullName({
                         ...fullName,
-                        [e.target.name]: e.target.value,
+                        religion: limitedInput,
                       });
                     }}
                     placeholder="E.g. Muslim"
@@ -358,7 +389,7 @@ export default function Services() {
                   />
                   <P color="red">
                     {blank
-                      ? fullName.religion === "" && "***Its should not empty"
+                      ? fullName.religion === "" && "***It should not be empty"
                       : ""}
                   </P>
                 </Col>
@@ -509,7 +540,7 @@ export default function Services() {
                   </P>
                   {formHead === "Security Guard" ? (
                     <select
-                    multiple
+                      multiple
                       name="service"
                       onChange={(e) => {
                         setFullName({
@@ -537,7 +568,7 @@ export default function Services() {
                     </select>
                   ) : formHead === "Home Tutor" ? (
                     <select
-                    multiple
+                      multiple
                       name="service"
                       onChange={(e) => {
                         setFullName({
@@ -564,7 +595,7 @@ export default function Services() {
                     </select>
                   ) : formHead === "Electrician" ? (
                     <select
-                    multiple
+                      multiple
                       name="service"
                       onChange={(e) => {
                         setFullName({
@@ -592,9 +623,9 @@ export default function Services() {
                         Electrical wiring
                       </option>
                     </select>
-                  ) : formHead==="Cook/Chief"? (
+                  ) : formHead === "Cook/Chief" ? (
                     <select
-                    multiple
+                      multiple
                       name="service"
                       onChange={(e) => {
                         setFullName({
@@ -618,67 +649,68 @@ export default function Services() {
                       <option value="Resturant">Resturant Services</option>
                       <option value="Cooking">Cooking Food</option>
                       <option value="Food">Food For Home</option>
-                      
                     </select>
-
-                  ): formHead ==="Baby Sitter"?
-                  <select
-                  multiple
-                  name="service"
-                  onChange={(e) => {
-                    setFullName({
-                      ...fullName,
-                      [e.target.name]: e.target.value,
-                    });
-                  }}
-                  style={{
-                    width: "100%",
-                    height: "100px",
-                    border: "1px solid grey",
-                    marginTop: "9px",
-                    borderRadius: "5px",
-                    paddingLeft: "8px",
-                  }}
-                >
-                  <option value="" disabled="" selected="">
-                    Service Type
-                  </option>
-                  <option value="Baby Sitter for Home">Baby Sitter for Home</option>
-                  <option value="Baby Sitter For Office">Baby Sitter For Office</option>
-                </select>
-                :
-                <select
-
-                multiple
-                  name="service"
-                  onChange={(e) => {
-                    setFullName({
-                      ...fullName,
-                      [e.target.name]: e.target.value,
-                    });
-                  }}
-                  style={{
-                    width: "100%",
-                    height: "100px",
-                    border: "1px solid grey",
-                    marginTop: "9px",
-                    borderRadius: "5px",
-                    paddingLeft: "8px",
-                  }}
-                >
-                  <option value="" disabled="" selected="">
-                    Service Type
-                  </option>
-                  <option value="Baby Sitter for Home">For Office</option>
-                  <option value="Baby Sitter For Office">For Personal Use</option>
-                  <option value="Baby Sitter For Office">For Family</option>
-                  <option value="Baby Sitter For Office">For Hospital</option>
-
-
-                  
-                </select>
-                  
-                  }
+                  ) : formHead === "Baby Sitter" ? (
+                    <select
+                      multiple
+                      name="service"
+                      onChange={(e) => {
+                        setFullName({
+                          ...fullName,
+                          [e.target.name]: e.target.value,
+                        });
+                      }}
+                      style={{
+                        width: "100%",
+                        height: "100px",
+                        border: "1px solid grey",
+                        marginTop: "9px",
+                        borderRadius: "5px",
+                        paddingLeft: "8px",
+                      }}
+                    >
+                      <option value="" disabled="" selected="">
+                        Service Type
+                      </option>
+                      <option value="Baby Sitter for Home">
+                        Baby Sitter for Home
+                      </option>
+                      <option value="Baby Sitter For Office">
+                        Baby Sitter For Office
+                      </option>
+                    </select>
+                  ) : (
+                    <select
+                      multiple
+                      name="service"
+                      onChange={(e) => {
+                        setFullName({
+                          ...fullName,
+                          [e.target.name]: e.target.value,
+                        });
+                      }}
+                      style={{
+                        width: "100%",
+                        height: "100px",
+                        border: "1px solid grey",
+                        marginTop: "9px",
+                        borderRadius: "5px",
+                        paddingLeft: "8px",
+                      }}
+                    >
+                      <option value="" disabled="" selected="">
+                        Service Type
+                      </option>
+                      <option value="Baby Sitter for Home">For Office</option>
+                      <option value="Baby Sitter For Office">
+                        For Personal Use
+                      </option>
+                      <option value="Baby Sitter For Office">For Family</option>
+                      <option value="Baby Sitter For Office">
+                        For Hospital
+                      </option>
+                    </select>
+                  )}
                   <P color="red">
                     {blank
                       ? fullName.service === "" && "***Its should not empty"
@@ -717,10 +749,17 @@ export default function Services() {
                   </P>
                   <Input
                     name="skills"
+                    value={fullName.skills}
                     onChange={(e) => {
+                      // Remove any non-alphabetic characters
+                      const alphabeticInput = e.target.value.replace(
+                        /[^A-Za-z]/g,
+                        ""
+                      );
+
                       setFullName({
                         ...fullName,
-                        [e.target.name]: e.target.value,
+                        skills: alphabeticInput,
                       });
                     }}
                     placeholder="Enter your Skill"
@@ -729,20 +768,28 @@ export default function Services() {
                   />
                   <P color="red">
                     {blank
-                      ? fullName.skills === "" && "***Its should not empty"
+                      ? fullName.skills === "" && "***It should not be empty"
                       : ""}
                   </P>
                 </Col>
+
                 <Col md={12}>
                   <P style={{ marginBottom: "0px", fontWeight: "bold" }}>
                     Languages
                   </P>
                   <Input
                     name="language"
+                    value={fullName.language}
                     onChange={(e) => {
+                      // Remove any non-alphabetic characters
+                      const alphabeticInput = e.target.value.replace(
+                        /[^A-Za-z\s/]/g,
+                        ""
+                      );
+
                       setFullName({
                         ...fullName,
-                        [e.target.name]: e.target.value,
+                        language: alphabeticInput,
                       });
                     }}
                     placeholder="E.g. Punjabi / Urdu"
@@ -751,7 +798,7 @@ export default function Services() {
                   />
                   <P color="red">
                     {blank
-                      ? fullName.language === "" && "***Its should not empty"
+                      ? fullName.language === "" && "***It should not be empty"
                       : ""}
                   </P>
                 </Col>
@@ -919,6 +966,61 @@ export default function Services() {
                 )}
               </Card>
             </Col>
+
+            {/* <Col md={6}>
+              <Card
+                style={{ height: "400px" }}
+                onClick={() => {
+                  if (id) {
+                    NextSection("Maid");
+                  }
+                }}
+                // onClick={() => {
+                //   client === 'false' && existance === false
+                //     ? (setOpen(true), setFormHead('Maid'))
+                //     : client === 'false' && existance === true
+                //     ? setExistanceModal(true)
+                //     : router.push({
+                //         pathname: '/AllProfile',
+                //       });
+                // }}
+              >
+                <div style={{ display: "flex", justifyContent: "center" }}>
+                  <Card
+                    style={{
+                      borderRadius: "100px",
+                      padding: "20px 20px 20px 8px",
+                      width: "100px",
+                    }}
+                  >
+                    <img
+                      width={"100px"}
+                      src="https://cdn-icons-png.flaticon.com/512/2548/2548007.png"
+                    />
+                  </Card>
+                </div>
+                <br />
+                <H2 fontWeight="600" lineHeight="50px" fontSize="22px">
+                  Plumber
+                </H2>
+                     
+                <P>
+                  {" "}
+                  We offer Plumber of different types like for Cleaning, Laundary,
+                  Kitchen, Baby-sitting, Cooking. Which will help you in
+                  maintaining your home.
+                </P>
+
+                {id ? (
+                  <BottomButton>
+                    <img width={"20px"} src={right} />
+                  </BottomButton>
+                ) : (
+                  ""
+                )}
+              </Card>
+            </Col> */}
+
             <Col md={6}>
               <Card
                 style={{ height: "400px" }}
@@ -959,6 +1061,9 @@ export default function Services() {
                   education , academic performances and will dicuss student
                   progress with parents.
                 </P>
+                {/* <div>
+                  I am requesting you for class 4
+                </div> */}
                 {id ? (
                   <BottomButton>
                     <img width={"20px"} src={right} />
@@ -976,7 +1081,6 @@ export default function Services() {
                     NextSection("Security Guard");
                   }
                 }}
-                
               >
                 <div style={{ display: "flex", justifyContent: "center" }}>
                   <Card
@@ -1080,7 +1184,6 @@ export default function Services() {
                     NextSection("Cook");
                   }
                 }}
-                
               >
                 <div style={{ display: "flex", justifyContent: "center" }}>
                   <Card
@@ -1090,20 +1193,18 @@ export default function Services() {
                       width: "100px",
                     }}
                   >
-                    <img
-                      width={"90px"}
-                      src={Chief}
-                    />
+                    <img width={"90px"} src={Chief} />
                   </Card>
                 </div>
                 <br />
                 <H2 fontWeight="600" lineHeight="50px" fontSize="22px">
-                  Cook/Chief
+                  Cook/Chef
                 </H2>
 
                 <P>
                   {" "}
-                  We offer Chief Services which will help You to cook food and will help you in maintaining your kitchen.
+                  We offer Chief Services which will help You to cook food and
+                  will help you in maintaining your kitchen.
                 </P>
                 {id ? (
                   <BottomButton>
@@ -1149,10 +1250,7 @@ export default function Services() {
                       width: "100px",
                     }}
                   >
-                    <img
-                      width={"90px"}
-                      src={Sitter}
-                    />
+                    <img width={"90px"} src={Sitter} />
                   </Card>
                 </div>
                 <br />
@@ -1162,7 +1260,8 @@ export default function Services() {
 
                 <P>
                   {" "}
-                  We offer Baby Sitting Services which helps you to take care of your baby and will help you in maintaining your home.
+                  We offer Baby Sitting Services which helps you to take care of
+                  your baby and will help you in maintaining your home.
                 </P>
                 {id ? (
                   <BottomButton>
@@ -1178,7 +1277,7 @@ export default function Services() {
                 style={{ height: "400px" }}
                 onClick={() => {
                   if (id) {
-                    NextSection("Driver");
+                    NextSection("Baby Sitter");
                   }
                 }}
                 // onClick={() => {
@@ -1207,20 +1306,62 @@ export default function Services() {
                       width: "100px",
                     }}
                   >
+                    <img width={"90px"} src={Sitter} />
+                  </Card>
+                </div>
+                <br />
+                <H2 fontWeight="600" lineHeight="50px" fontSize="22px">
+                  Baby Sitter
+                </H2>
+
+                <P>
+                  {" "}
+                  We offer Baby Sitting Services which helps you to take care of
+                  your baby and will help you in maintaining your home.
+                </P>
+                {id ? (
+                  <BottomButton>
+                    <img width={"20px"} src={right} />
+                  </BottomButton>
+                ) : (
+                  ""
+                )}
+              </Card>
+            </Col>
+            <Col style={{ marginTop: "50px" }} md={6}>
+              <Card
+                style={{ height: "400px" }}
+                onClick={() => {
+                  if (id) {
+                    NextSection("Driver");
+                  }
+                }}
+              >
+                <div style={{ display: "flex", justifyContent: "center" }}>
+                  <Card
+                    style={{
+                      borderRadius: "100px",
+                      padding: "20px 20px 20px 8px",
+                      width: "100px",
+                    }}
+                  >
                     <img
                       width={"90px"}
-                      src={"https://e7.pngegg.com/pngimages/990/83/png-clipart-taxicab-driver-illustration-taxi-car-driving-chauffeur-bus-taxi-driver-file-driving-hat-thumbnail.png"}
+                      src={
+                        "https://e7.pngegg.com/pngimages/990/83/png-clipart-taxicab-driver-illustration-taxi-car-driving-chauffeur-bus-taxi-driver-file-driving-hat-thumbnail.png"
+                      }
                     />
                   </Card>
                 </div>
                 <br />
                 <H2 fontWeight="600" lineHeight="50px" fontSize="22px">
-                 Driver
+                  Driver
                 </H2>
 
                 <P>
                   {" "}
-                  We offer Driving Services which helps you to drive your car and will help you to traval.
+                  We offer Driving Services which helps you to drive your car
+                  and will help you to traval.
                 </P>
                 {id ? (
                   <BottomButton>

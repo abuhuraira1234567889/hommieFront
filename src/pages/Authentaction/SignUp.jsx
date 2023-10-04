@@ -10,8 +10,8 @@ import Slider from "../../images/slider.png";
 import logo3 from "../../images/logo3.png";
 import { useNavigate } from "react-router-dom";
 import { BounceLoader } from "react-spinners";
-import { Link } from 'react-router-dom';
-
+import { Link } from "react-router-dom";
+import eyeIcon from "../../images/eye off.svg";
 
 import axios from "axios";
 import { client } from "../../services/client";
@@ -24,36 +24,49 @@ export default function SignUp() {
   const [confirmPassword, setConfirmPassword] = useState("");
   const [error, setError] = useState("");
   const [loader, setLoader] = useState(false);
+  const [showPassword, setShowPassword] = useState(false);
+  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
   const navigate = useNavigate();
+
+  const isValidEmail = (email) => {
+    // Regular expression for a valid email address
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(email);
+  };
 
   async function onSumbit() {
     setLoader(true);
-
     setError("");
+
     if (
       email !== undefined &&
       password !== undefined &&
       confirmPassword !== undefined
     ) {
-      if (password == confirmPassword) {
-        try {
-          const res = await client.post("addProfile", {
-            email: email,
-            password: password,
-            isWorker: isWorker,
-          });
-          console.log(res);
-          if (res.status === 200) {
-            navigate("/sign-in");
+      if (isValidEmail(email)) {
+        if (password === confirmPassword) {
+          try {
+            const res = await client.post("addProfile", {
+              email: email,
+              password: password,
+              isWorker: isWorker,
+            });
+
+            if (res.status === 200) {
+              navigate("/sign-in");
+              setLoader(false);
+            }
+          } catch (error) {
+            setError(error.response.data.message);
             setLoader(false);
           }
-        } catch (error) {
-          setError(error.response.data.message);
+        } else {
+          setError("Your confirm password does not match");
           setLoader(false);
         }
       } else {
-        console.log("password not match");
-        setError("Your confirm password Does not match");
+        setError("Please enter a valid email address");
+        setLoader(false);
       }
     }
   }
@@ -102,12 +115,7 @@ export default function SignUp() {
                         navigate("/sign-in");
                       }}
                     >
-                      <a
-                        style={{ color: "white" }}
-                        // href={'/Subpages/Authentaction/Sign'}
-                      >
-                        Login
-                      </a>
+                      <a style={{ color: "white" }}>Login</a>
                     </Button>
                   </div>
                 </Col>
@@ -129,62 +137,107 @@ export default function SignUp() {
                       flexDirection: "column",
                     }}
                   >
-                    {/* <img width={"140px"} height="100px" src={logo3} alt="" style={{marginTop: "125px"}}/> */}
-                    <H2 fontSize="28px" style={{ textAlign: "center", marginTop: "140px",}}>
+                    <H2
+                      fontSize="28px"
+                      style={{ textAlign: "center", marginTop: "140px" }}
+                    >
                       Register Yourself
                     </H2>
-                    <P style={{ textAlign: "center" , marginTop: "2px"}}>
+                    <P style={{ textAlign: "center", marginTop: "2px" }}>
                       Kindly enter your required credentials carefully.
                     </P>
                     <br />
-                    <Input 
-                     style={{
-                      height:"43px"
-                 }}
+                    <Input
+                      style={{
+                        height: "43px",
+                      }}
                       onChange={(e) => {
                         setEmail(e.target.value);
                       }}
                       type={"email"}
                       placeholder="Enter Your Email"
                     />
-                    <Input
-                        style={{
-                          height:"43px"
-                     }}
-                      onChange={(e) => {
-                        setPassword(e.target.value);
+                    <div
+                      style={{
+                        position: "relative",
+                        width: "100%",
                       }}
-                      type={"password"}
-                      placeholder="Enter Your Password"
-                    />
-                    <Input
+                    >
+                      <Input
                         style={{
-                          height:"43px"
-                     }}
-                      onChange={(e) => {
-                        setConfirmPassword(e.target.value);
+                          height: "43px",
+                        }}
+                        onChange={(e) => {
+                          setPassword(e.target.value);
+                        }}
+                        type={showPassword ? "text" : "password"}
+                        placeholder="Enter Your Password"
+                      />
+                      <img
+                        src={eyeIcon}
+                        alt="Toggle Password Visibility"
+                        onClick={() => setShowPassword(!showPassword)}
+                        style={{
+                          position: "absolute",
+                          right: "10px",
+                          top: "50%",
+                          transform: "translateY(-50%)",
+                          cursor: "pointer",
+                          width: "20px",
+                          height: "20px",
+                        }}
+                      />
+                    </div>
+                    <div
+                      style={{
+                        position: "relative",
+                        width: "100%",
                       }}
-                      type={"password"}
-                      placeholder="Confirm Password"
-                    />
+                    >
+                      <Input
+                        style={{
+                          height: "43px",
+                        }}
+                        onChange={(e) => {
+                          setConfirmPassword(e.target.value);
+                        }}
+                        type={showConfirmPassword ? "text" : "password"}
+                        placeholder="Confirm Password"
+                      />
+                      <img
+                        src={eyeIcon}
+                        alt="Toggle Confirm Password Visibility"
+                        onClick={() =>
+                          setShowConfirmPassword(!showConfirmPassword)
+                        }
+                        style={{
+                          position: "absolute",
+                          right: "10px",
+                          top: "50%",
+                          transform: "translateY(-50%)",
+                          cursor: "pointer",
+                          width: "20px",
+                          height: "20px",
+                        }}
+                      />
+                    </div>
                     {error && <p style={{ color: "red" }}>***{error}</p>}
+
                     <div style={{ width: "100%" }}>
                       <input
-                      
                         onChange={() => {
                           setisWorker(!isWorker);
                         }}
-                        style={{ marginRight: "14px", boxShadow:"none" , width:"4%", marginTop:"6px" ,marginLeft:"14px"}}
+                        style={{
+                          marginRight: "14px",
+                          boxShadow: "none",
+                          width: "4%",
+                          marginTop: "6px",
+                        }}
                         type={"checkbox"}
                       />
                       As a Client
                     </div>
-                    <P style={{
-                        textAlign: "right",
-                        color: "black",
-                        textDecoration: "none",
-                        cursor: "pointer",
-                      }} > If you are a worker don't select checkbox</P>
                     <P
                       style={{
                         textAlign: "right",
@@ -193,22 +246,40 @@ export default function SignUp() {
                         cursor: "pointer",
                       }}
                     >
-                      Already have an account?  <Link to="/sign-in" style={{fontWeight:"bold", color: "blue"}}>Sign In</Link>
+                      {" "}
+                      If you are a worker don't select checkbox
+                    </P>
+
+                    <P
+                      style={{
+                        textAlign: "right",
+                        color: "black",
+                        textDecoration: "none",
+                        cursor: "pointer",
+                      }}
+                    >
+                      Already have an account?{" "}
+                      <Link
+                        to="/sign-in"
+                        style={{ fontWeight: "bold", color: "blue" }}
+                      >
+                        Sign In
+                      </Link>
                       {/* <strong>Sign In</strong> */}
                     </P>
-                    
 
                     <Button
                       onClick={() => {
                         onSumbit();
                       }}
                       style={{
-                        width: "90%",
+                        width: "70%",
                         borderRadius: "20px",
                         background: "#00d05e",
                         color: "white",
                         marginBottom: "42px",
-                        paddingBottom: "50px"
+                        paddingBottom: "50px",
+                        textAlign: "center",
                       }}
                     >
                       Sign Up
