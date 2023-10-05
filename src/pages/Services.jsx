@@ -1216,7 +1216,7 @@ export default function Services() {
               </Card>
             </Col>
 
-            <Col style={{ marginTop: "50px" }} md={6}>
+            {/* <Col style={{ marginTop: "50px" }} md={6}>
               <Card
                 style={{ height: "400px" }}
                 onClick={() => {
@@ -1271,7 +1271,7 @@ export default function Services() {
                   ""
                 )}
               </Card>
-            </Col>
+            </Col> */}
             <Col style={{ marginTop: "50px" }} md={6}>
               <Card
                 style={{ height: "400px" }}
